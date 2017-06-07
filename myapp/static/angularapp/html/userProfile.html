@@ -1,0 +1,72 @@
+<link rel="stylesheet" type="text/css" href="/static/angularapp/css/profileStyle.css">
+<!-- <link rel="stylesheet" type="text/css" href="/static/angularapp/css/playgroundStyle.css"> -->
+
+<div class="profileBackground" style="padding-top:60px">
+
+<div class="container-fluid lifted">
+  <div class="outerCoverContainer">
+    <div class="profileImgContainer pull-left">
+      <!-- <img class="img-rounded" src="{{myservice.user.image}}"\> -->
+      <img class="profileImg img-responsive img-rounded" src="{{profileInfo_Overview.user.image}}"\>
+    </div>
+  </div>
+  <div class="infoContainer">
+    <div class="container nameInfo">
+      <div class="col-md-4 col-md-offset-3">
+        <h1> <font> {{profileInfo_Overview.user.firstname}} {{profileInfo_Overview.user.lastname}} </font></h1>
+      </div>
+      <!-- <div class="col-md-2 col-md-offset-3" style="padding-top: 17px"> -->
+        <!-- <button type="button" class="btn btn-lg btn-info"</button> -->
+        <span class="pull-right" style="padding-top: 2%;" ng-show="myservice.loggedIn">
+        <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="processFriendship()">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> {{profileInfo_Overview.user.friendshipStatus}}
+        </button>
+        <button type="button" class="btn btn-default" aria-label="Left Align" ng-click="switchView()">
+          <span class="{{currentView.upNextIcon}}" aria-hidden="true"></span> {{currentView.upNext}}
+        </button>
+        </span>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+
+
+<div class="profileInfo" ng-show="currentView.profileView">
+  <div class="container-fluid" style="padding-top: 2%">
+    <div class="panel-body" style="padding-left:0; padding-right:0">
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('summarySection')" ng-show="sectionVisibility.Summary"> Summary </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('experienceSection')" ng-show="sectionVisibility.Experience"> Experience </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('organizationSection')" ng-show="sectionVisibility.Organizations"> Organizations </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('courseSection')" ng-show="sectionVisibility.Courses"> Courses </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('projectSection')" ng-show="sectionVisibility.Projects"> Projects </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('volunteeringSection')" ng-show="sectionVisibility.Volunteering"> Volunteering </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('publicationSection')" ng-show="sectionVisibility.Publications"> Publications </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('languageSection')" ng-show="sectionVisibility.Languages"> Languages </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('educationSection')" ng-show="sectionVisibility.Education"> Education </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('additionalInfoSection')" ng-show="sectionVisibility.AdditionalInfo"> Additional Info </button>
+          <!-- <button class="btn jumperButtons col-md-2" ng-click="jumpTo('recommendationSection')" ng-show="sectionVisibility.Summary"> Recommendations </button> -->
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('documentSection')" ng-show="sectionVisibility.Documents"> Documents </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('imageSection')" ng-show="sectionVisibility.Images"> Images </button>
+          <button class="btn jumperButtons col-md-2" ng-click="jumpTo('videoSection')" ng-show="sectionVisibility.Videos"> Video Links </button>
+    </div>
+  </div>
+  
+  <!-- <div class="col-md-12" ng-repeat="section in sectionInfo" ng-include src="section.src"></div> -->
+  <div class="container-fluid" ng-include src="sectionInfo.Summary.src" ng-show="sectionVisibility.Summary"></div>
+  <div class="container-fluid" ng-include src="sectionInfo.Experience.src" ng-show="sectionVisibility.Experience"></div>
+  <div class="container-fluid" ng-include src="sectionInfo.Organizations.src" ng-show="sectionVisibility.Organizations"></div>
+  <div class="container-fluid" ng-include src="sectionInfo.Courses.src" ng-show="sectionVisibility.Courses"></div>
+  <div class="container-fluid" ng-include src="sectionInfo.Projects.src" ng-show="sectionVisibility.Projects"></div>
+  <div class="container-fluid" ng-include src="sectionInfo.Volunteering.src" ng-show="sectionVisibility.Volunteering"></div>
+  <div class="container-fluid" ng-include src="sectionInfo.Publications.src" ng-show="sectionVisibility.Publications"></div>
+  <div class="container-fluid" ng-include src="sectionInfo.Languages.src" ng-show="sectionVisibility.Languages"></div>
+  <div class="container-fluid" ng-include src="sectionInfo.Education.src" ng-show="sectionVisibility.Education"></div>  
+  <div class="container-fluid" ng-include src="sectionInfo.AdditionalInfo.src" ng-show="sectionVisibility.AdditionalInfo"></div>
+  <div class="container-fluid" ng-include src="sectionInfo.Media.src"></div>
+
+</div>
+
+<div class="calendarInfo" ng-show="currentView.calendarView">
+  <div class="container-fluid" ng-include src="sectionInfo.Calendar.src" ng-show="sectionVisibility.Calendar"></div>  
+</div>
+<!-- </div> -->

@@ -1,0 +1,24 @@
+<div class="col-md-12" ng-controller="userAdditionalInfoController">
+
+	<div class="panel panel-custom-infoBlock" id="additionalInfoSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_AdditionalInfo.title}}</text> -->
+      <text class="profileInfoCategory-title">Additional Info</text>
+    </div>
+    
+    <div class="panel-body" ng-repeat="info in profileInfo_AdditionalInfo.additionalInfo">
+    <!-- <form editable-form name="editableFormAdditionalInfo" ng-repeat="info in profileInfo_AdditionalInfo.additionalInfo" ng-show=profileInfo_AdditionalInfo.visibility > -->
+      <div class="col-md-12">
+        <div><text class="profileInfo-heading1">{{info.title}}</text></div>
+        <div><text class="profileInfo-description">{{info.values}}</text></div>
+      </div>
+      
+      <div class="col-md-12"><hr class="style-one"></div> 
+    <!-- </form> -->
+
+    </div>
+    
+  </div>
+
+
+</div>

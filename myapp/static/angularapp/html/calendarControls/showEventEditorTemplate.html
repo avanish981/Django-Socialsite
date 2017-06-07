@@ -1,0 +1,114 @@
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="vm.discardChanges(); $close()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Edit Event</h4>
+  </div>
+  <div class="modal-body">
+    <div class="container-fluid">
+      <form>
+        <div class="form-group row">
+          <label class="col-sm-2 form-control-label">Title:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="vm.eventDetails.title" placeholder="Event Title"/>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 form-control-label">Style:</label>
+          <div class="col-sm-10">
+            <select ng-model="vm.eventDetails.type" class="form-control">
+              <option value="important">Important</option>
+              <option value="warning">Warning</option>
+              <option value="info">Info</option>
+              <option value="inverse">Inverse</option>
+              <option value="success">Success</option>
+              <option value="special">Special</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-sm-12">
+            <label class="col-sm-6 form-control-label">Start time:</label>
+            <label class="col-sm-6 form-control-label">End time:</label>
+          </div>
+          <div class="col-sm-12">
+          <div class="col-sm-6">
+            <p class="input-group" style="max-width: 250px">
+              <input type="text" class="form-control" readonly
+                uib-datepicker-popup="dd MMMM yyyy"
+                ng-model="vm.eventDetails.startsAt"
+                is-open="vm.eventDetails.startOpen"
+                close-text="Close" >
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default"
+                  ng-click="vm.toggle($event, 'startOpen', vm.eventDetails)">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+            </p>
+            <uib-timepicker
+              ng-model="vm.eventDetails.startsAt" hour-step="1" minute-step="15" show-meridian="true">
+            </uib-timepicker>
+          </div>
+        
+          <div class="col-sm-6">
+            <p class="input-group" style="max-width: 250px">
+              <input type="text" class="form-control" readonly
+                uib-datepicker-popup="dd MMMM yyyy"
+                ng-model="vm.eventDetails.endsAt"
+                is-open="vm.eventDetails.endOpen"
+                close-text="Close">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default"
+                  ng-click="vm.toggle($event, 'endOpen', vm.eventDetails)">
+                  <i class="glyphicon glyphicon-calendar"></i>
+                </button>
+              </span>
+            </p>
+            <uib-timepicker
+              ng-model="vm.eventDetails.endsAt" hour-step="1" minute-step="15" show-meridian="true">
+            </uib-timepicker>
+          </div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 form-control-label">Description:</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" ng-model="vm.eventDetails.description" rows="5" ></textarea>
+          </div>
+        </div>
+
+        <pre>{{ vm.eventDetails | json }}</pre>
+      </form>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+    <button type="button" class="btn btn-danger" aria-label="Left Align" ng-click="vm.deleteExistingEvent(); $close()">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete Event
+    </button>
+    <button type="button" class="btn btn-warning" aria-label="Left Align" ng-click="vm.discardChanges(); $close()">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Discard Changes
+    </button>
+    <button type="button" class="btn btn-success" aria-label="Left Align" ng-click="vm.saveExistingEvent(); $close()">
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Save Changes
+    </button>
+  </div>
+      
+
+      <!-- <div class="modal-header">
+        <h3 class="modal-title">Event action occurred!</h3>
+      </div>
+      <div class="modal-body">
+        <p>Action:
+        <pre>{{ vm.action }}</pre>
+        </p>
+        <p>Event:
+        <pre>{{ vm.event | json }}</pre>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="$close()">OK</button>
+      </div>
+     -->

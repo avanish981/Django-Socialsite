@@ -1,0 +1,122 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="organizationsController">
+
+<div class="panel panel-custom-infoBlock" id="organizationSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Organization.title}}</text> -->
+      <text class="profileInfoCategory-title">Organizations</text>
+    </div>
+    
+    <div class="panel-body">
+    <form editable-form name="editableFormOrganization" ng-repeat="org in profileInfo_Organization.organizations" ng-show=profileInfo_Organization.visibility>
+      <div class="col-md-11">
+        <div class="col-md-10">
+          <div class="row">
+            <text class="profileInfo-heading1" editable-text="org.organizationName" e-placeholder="Organization Name">{{org.organizationName}}</text>
+          </div>
+          <div class="row">
+            <text class="profileInfo-heading2" editable-text="org.positionHeld" e-placeholder="Postion Held">{{org.positionHeld}}</text>
+          </div>
+          <div class="row profileInfo-heading3">
+            <text ng-show="editableFormOrganization.$visible">Start Date: </text>
+            <text ng-show=org.startTime editable-combodate="org.startTime">{{org.startTime | date:"mediumDate"}}</text>
+            <text ng-show="editableFormOrganization.$visible">End Date:  </text>
+            <text ng-show=org.endTime editable-combodate="org.endTime"> - {{org.endTime | date:"mediumDate"}}</text>
+            <text ng-show=org.occupation  editable-text="org.occupation" e-placeholder="Occupation"> | {{org.occupation}}</text>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <img class="profileInfo-logo pull-right" src="{{org.logo_url}}">
+        </div>
+      </div>
+
+      <div class="col-md-1" ng-if="profileInfo_Organization.organizations.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormOrganization.$show()" ng-show="!editableFormOrganization.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>
+
+      <div class="col-md-11">
+      <text class="profileInfo-description" editable-textarea="org.additionalNotes" e-placeholder="Additional Notes"> {{org.additionalNotes}}</text>
+      </div>
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormOrganization.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateOrganizations($index)" ng-disabled="editableFormOrganization.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormOrganization.$waiting" ng-click="editableFormOrganization.$cancel()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" ng-click="deleteOrganizations($index); editableFormOrganizations.$cancel()" ng-disabled="editableFormOrganizations.$waiting">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button>
+        </span>
+      </div>
+      <div class="col-md-12"><hr class="style-one"></div>
+
+    </form>
+
+    <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormOrganizationNew.$show()" ng-show="!editableFormOrganizationNew.$visible">
+          Add Organization <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+     </div>
+
+    <form editable-form name="editableFormOrganizationNew" ng-show="editableFormOrganizationNew.$visible">
+      <div class="col-md-12">
+
+        <div class="editor">
+          <span class="col-md-2"><text class="labels">Organization Name: </text></span>
+          <span class=""><text editable-text="organizationsNew.organizationName" e-placeholder="Organization Name"></text></span>
+        </div>
+
+        <div class="editor">
+          <span class="col-md-2"><text class="labels">Position Held: </text></span>
+          <span class=""><text editable-text="organizationsNew.positionHeld" e-placeholder="Position held"></text></span>
+        </div>
+
+        <div class="editor">
+          <span class="col-md-2"><text class="labels" >Start Date: </text></span>
+          <text editable-combodate="organizationsNew.startTime"></text>
+        </div>
+
+        <div class="editor">
+          <span class="col-md-2"><text class="labels" >End Date: </text></span>
+          <text editable-combodate="organizationsNew.endTime"></text>
+        </div>
+
+        <div class="editor">
+          <span class="col-md-2"><text class="labels">Occupation: </text></span>
+          <span class=""><text editable-text="organizationsNew.occupation" e-placeholder="Occupation"></text></span>
+        </div>
+
+        <div class="editor">
+          <span class="col-md-2"><text class="labels">Additional Notes: </text></span>
+          <span class=""><text editable-textarea="organizationsNew.additionalNotes" e-placeholder="Additional Notes"></text></span>
+        </div>
+        
+      </div>
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormOrganizationNew.$visible">
+          <button type="submit" class="btn btn-success" ng-click="addNewOrganization()" ng-disabled="editableFormOrganizationNew.$waiting">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+          </button>
+          <button type="button" class="btn btn-danger" ng-disabled="editableFormOrganizationNew.$waiting" ng-click="editableFormOrganizationNew.$cancel(); discardOrganization();">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+          </button>
+        </span>
+      </div>
+      <div class="col-md-12"><hr class="style-one"></div>
+
+    </form>
+
+    </div>
+  
+  </div>
+
+</div>

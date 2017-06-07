@@ -1,0 +1,41 @@
+<div class="form-group has-feedback searchBar dropdown" outside-click="onBlur()">
+  <input type="text" class="form-control" ng-model="model" placeholder="{{prompt}}" ng-keydown="selected=false" ng-change="onChange()"/>
+    <i class="glyphicon glyphicon-search form-control-feedback"></i>
+
+    <div ng-if="items.length > 0">
+	    <ul class="dropdown-menu-spm">
+	    <li class="item" ng-repeat="item in items | filter:model  track by $index" ng-click="handleSelection(item, $index)" style="cursor:pointer; left:0; right:0;" ng-class="{active:isCurrent($index)}" ng-mouseenter="setCurrent($index)"> 
+	    	<div class="container-fluid" style="padding-top: 5px; padding-bottom: 5px;">
+	    		<div class="col-md-3 searchDisplayImg" style="padding-left:0; padding-right:0;">
+	    			<img class="media-object" height="100%" width="100%" src={{item[photo]}}>
+	    		</div>
+	    		<div class="col-md-9" style="margin-left: 5%">
+	    			<div class="row">
+	    				<text class="searchTitle">{{item[title]}}</text>		
+	    			</div>
+	    			<div class="row">
+	    				<text class="searchSubtitle">{{item[subtitle1]}}</text>
+	    			</div>
+	    			<div class="row">
+	    				<text class="searchSubtitle">{{item[subtitle2]}}</text>
+	    			</div>
+	    		</div>
+	    	</div>
+	    	<div class="container-fluid">
+	    		<div class="col-md-12" style="border: 1px solid #5C5F62;"></div>
+	    	</div>
+
+	    </li>
+	    <li>
+	    	<div class="container-fluid" style="height: 50px">
+	    		<div class="col-md-12" style="text-align: center; line-height: 50px; cursor: pointer" ng-click="goToAdvancedSearch()">
+	    			<text class="searchTitle"> Fetch more results </text>
+	    		</div>
+	    	</div>
+	    	<div class="container-fluid">
+	    		<div class="col-md-12" style="border: 1px solid #5C5F62;"></div>
+	    	</div>
+	    </li>
+	    </ul>
+	</div>
+</div>

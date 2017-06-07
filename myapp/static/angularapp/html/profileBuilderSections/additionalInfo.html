@@ -1,0 +1,81 @@
+<div class="col-md-12" ng-controller="additionalInfoController">
+
+	<div class="panel panel-custom-infoBlock" id="additionalInfoSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_AdditionalInfo.title}}</text> -->
+      <text class="profileInfoCategory-title">Additional Info</text>
+    </div>
+    
+    <div class="panel-body">
+    <form editable-form name="editableFormAdditionalInfo" ng-repeat="info in profileInfo_AdditionalInfo.additionalInfo" ng-show=profileInfo_AdditionalInfo.visibility >
+      <div class="col-md-11">
+        <div><text class="profileInfo-heading1" editable-text ="info.title" e-placeholder="Title">{{info.title}}</text></div>
+        <div><text class="profileInfo-description" editable-textarea ="info.values" e-placeholder="Description">{{info.values}}</text></div>
+      </div>
+
+      <div class="col-md-1" ng-if="profileInfo_AdditionalInfo.additionalInfo.length > 0">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormAdditionalInfo.$show()" ng-show="!editableFormAdditionalInfo.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>
+      
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span class="container" ng-show="editableFormAdditionalInfo.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateAdditionalInfo($index)" ng-disabled="editableFormAdditionalInfo.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormAdditionalInfo.$waiting" ng-click="editableFormAdditionalInfo.$cancel()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" ng-click="deleteAdditonalInfo($index); editableFormAdditionalInfo.$cancel()" ng-disabled="editableFormAdditionalInfo.$waiting">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button>
+        </span>
+      </div>
+      
+      <div class="col-md-12"><hr class="style-one"></div> 
+    </form>
+
+    <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormAdditionalInfoNew.$show()" ng-show="!editableFormAdditionalInfoNew.$visible">
+          Add Additional Information <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+     </div>
+
+    <form editable-form name="editableFormAdditionalInfoNew" ng-show=editableFormAdditionalInfoNew.$visible>
+    	<div class="col-md-12">
+    		<div class="editor">
+				<span class="col-md-2"><text class="labels">Title: </text></span>
+				<span class=""><text editable-text="additionalInfoNew.title" e-placeholder="Title"></text></span>
+			</div>
+
+			<div class="editor">
+				<span class="col-md-2"><text class="labels">Content: </text></span>
+				<span class=""><text editable-text="additionalInfoNew.values" e-placeholder="Content"></text></span>
+			</div>
+
+		</div>
+
+		<div class="col-md-12">
+    		<hr>
+	      <!-- buttons to submit / cancel form -->
+	      <span ng-show="editableFormAdditionalInfoNew.$visible">
+	        <button type="submit" class="btn btn-success" ng-click="addNewAdditionalInfo()" ng-disabled="editableFormAdditionalInfoNew.$waiting">
+	          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+	        </button>
+	        <button type="button" class="btn btn-danger" ng-disabled="editableFormAdditionalInfoNew.$waiting" ng-click="editableFormAdditionalInfoNew.$cancel(); discardAdditionalInfo();">
+	          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+	        </button>
+	      </span>
+	    </div>
+	</form>
+
+    </div>
+    
+  </div>
+
+
+</div>

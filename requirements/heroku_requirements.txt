@@ -1,0 +1,16 @@
+# For heroic git
+#Go into an app folder
+git init
+git remote add origin https://bhavinpmakasana@bitbucket.org/spmistry/mysocialelite.git
+git add .
+git commit -m 'code for server'
+git push -f origin master
+heroku run mysocialelite/manage.py
+#https://aqueous-thicket-58987.herokuapp.com/ | https://git.heroku.com/aqueous-thicket-58987.git
+#aqueous-thicket-58987
+git push heroku master
+heroku ps:scale web=1
+heroku open
+
+
+

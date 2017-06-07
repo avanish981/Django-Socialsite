@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<!-- define angular app -->    
+<html ng-app="RoutingApp">    
+<head>    
+    <base href="/" />
+
+    <!-- JQuery and AngularJS-->    
+    <script type="text/javascript" src='{% static "angularapp/js/external/jquery.min.js" %}'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
+    
+    <!-- Calendar -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    
+    <!-- Angular Cookies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-cookies.min.js"></script>
+    
+    <!-- xEditable extension to edit in place -->
+    <script type="text/javascript" src='{% static "angularapp/js/external/xeditable.min.js"%}'></script> 
+    <link rel="stylesheet" type="text/css" href= '{% static "angularapp/css/external/xeditable.min.css"%}'>
+
+    <link rel="stylesheet" type="text/css" href= '{% static "angularapp/css/external/animate.min.css"%}'>
+    
+    <!-- Date Picker Common -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+
+    <!-- Calendar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.4/interact.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
+    <script src='{% static "angularapp/js/external/calendar-tpls.js"%}'></script>
+    <!-- <script src='{% static "angularapp/js/external/example.js" %}'></script> -->
+    
+
+    <!-- Scroll and relocate withing page -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.0/angular-scroll.min.js"></script>
+
+    <script type="text/javascript" src='{% static "angularapp/js/external/ng-videosharing-embed.min.js"%}'></script> 
+    <script type="text/javascript" src='{% static "angularapp/js/app.js"%}'></script>
+
+    
+    <!-- Angular Controllers -->
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/landingController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/callbackGoogleController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/callbackLinkedInController.js" %}'></script>    
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/userProfileController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderNewUserController.js" %}'></script>  
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/advancedSearchController.js" %}'></script>  
+
+    <!-- Sectional Controllers -->
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/summaryController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/experienceController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/organizationsController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/coursesController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/projectsController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/volunteeringController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/publicationsController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/languagesController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/educationController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/additionalInfoController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/mediaController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileBuilderSections/calendarController.js" %}'></script>
+
+    <!-- User Sectional Controllers -->
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/summaryController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/experienceController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/organizationsController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/coursesController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/projectsController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/volunteeringController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/publicationsController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/languagesController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/educationController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/additionalInfoController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/mediaController.js" %}'></script>
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/profileViewSections/calendarController.js" %}'></script>
+
+    <!-- Playgorund - Temporary -->
+    <script type="text/javascript" src='{% static "angularapp/js/controllers/playgroundController.js" %}'></script>    
+
+    <!-- CSS Files -->    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Calendar -->
+    <link href="//mattlewis92.github.io/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css" rel="stylesheet">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />    
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href='{% static "angularapp/css/style.css" %}'/>
+
+</head>    
+    
+<body ng-controller="landingController">    
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" scroll-position="scroll" ng-class="{'shrink': scroll > 50, 'expand': scroll <= 50}">
+      <div class="container-fluid">
+        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+          <a class="navbar-brand" href="/"> <img src='{% static "angularapp/images/brand-icon.jpg" %}' alt="My Social Elite"> <text class="navText">My Social Elite</text></a>
+        </div>
+        <div class="collapse navbar-collapse" style="margin-right: 0">
+          
+          <ul class="nav navbar-nav pull-right">
+            <!-- <li><a href="" style="color: white">Login</a></li> -->
+            <!-- <ul class="nav navbar-nav navbar-right"> -->
+                <li class="">
+                  <typeahead items="items" prompt="Search" title="fullname" subtitle1="recentInfo" subtitle2="title" photo="displayPic" model="name" on-select="onSearchItemSelected(arg)" ng-model="name" on-change="mainSearchTextChanged()" on-blur="hideSearchResults()"/>
+                </li>
+                <!-- <li class="col-md-7"><a href="/profileBuilderNewUser"><b><text class="navText">Builder</text></b></a></li> -->
+                <li><a href="/"><b><text class="navText">Home</text></b></a></li>
+                <li><a href="/profile" ng-show = "myservice.loggedIn"><b><text class="navText">Profile</text></b></a></li>
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show = "!myservice.loggedIn" style="color: white"><b><text class="navText">Login</text></b> <span class="caret"></span></a>  
+                
+                <ul id="login-dp" class="dropdown-menu" style="left:auto;right:0">
+                  <li>
+                     <div class="row">
+                        <div class="col-md-12">
+                           <form class="form" role="form" accept-charset="UTF-8" id="login-nav">
+                              <div class="form-group">
+                                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                 
+                                 <input type="email" class="form-control" placeholder="Email address" ng-model="login.username" required>
+                              
+                              </div>
+                              <div class="form-group">
+                                 <label class="sr-only" for="exampleInputPassword2">Password</label>
+                              
+                                 <input type="password" class="form-control" placeholder="Password" ng-model="login.password" required>
+                              
+                              <div class="help-block text-center"><text class="landing-heading2">Forgot password?</text></div>
+                              </div>
+                              <div class="form-group"  style="text-align:center">
+                                 <button type="submit" class="btn theme-btn" ng-click="login()">Sign in</button>
+                              </div>
+                              <div class="checkbox">
+                                 <label>
+                                 <input type="checkbox"> <text class="landing-heading3">keep me logged-in</text>
+                                 </label>
+                              </div>
+                           </form>
+                        </div>
+                        <!-- <div class="bottom text-center"> -->
+                          <div class="col-md-12"><hr class="style-one"></div>
+                          <div class="bottom text-center">
+                            <!-- <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                            <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a> -->
+                            <img src = "static/angularapp/images/btn_google+_signin_dark_normal_web.png" ng-click='login_Google()'>
+                            
+                            <img src = "static/angularapp/images/Sign-In-Large---Default.png" ng-click='login_LinkedIn()'>
+
+                          </div>
+                        <!-- </div> -->
+                     </div>
+                  </li>
+                </ul>
+              </li>
+
+              <li><a href="" ng-click = "signout()" ng-show = "myservice.loggedIn"><b><text class="navText">Logout</text></b> </a></li>
+            <!-- </ul> -->
+
+            
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li> -->
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+ 
+    <div id="main">    
+        <!-- angular templating : This is where content will be injected -->    
+        <div ng-view></div>    
+    </div>    
+
+    
+</body>    
+</html>   

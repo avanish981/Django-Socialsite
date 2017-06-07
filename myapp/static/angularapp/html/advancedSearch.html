@@ -1,0 +1,126 @@
+<div class="profileBackground" style="padding-top:65px">
+	<div class="row">
+	
+	<div class="col-md-3">
+		<div class="panel-group accordion" id="accordion2">
+			<div class="panel panel-default">
+				<button type="button" class="btn btn-primary btn-sm pull-center" style="width: 100%" ng-click="searchPeople()">
+				  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
+				</button>
+			</div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <text>
+		            Name
+		          </text>
+		          <span class="glyphicon glyphicon-plus pull-right accordion-toggle" aria-hidden="true" data-toggle="collapse" data-parent="#accordion" data-target="#searchName" style="cursor: pointer"></span>
+		        </h4>
+		      </div>
+		      <div id="searchName" class="panel-collapse collapse in">
+		        <div class="panel-body">
+		          	<div class="form-group">
+			          <input type="text" class="form-control" placeholder="Partial Name" ng-model="searchCriteria.fullname">
+			        </div>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <text>
+		            University
+		          </text>
+		          <span class="glyphicon glyphicon-plus pull-right accordion-toggle" aria-hidden="true" data-toggle="collapse" data-parent="#accordion" data-target="#searchUniversity" style="cursor: pointer"></span>
+		        </h4>
+		      </div>
+		      <div id="searchUniversity" class="panel-collapse collapse in">
+		        <div class="panel-body">
+		          	<div class="form-group">
+			          <input type="text" class="form-control" placeholder="University Name" ng-model="searchCriteria.university">
+			        </div>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <text>
+		            Company Name
+		          </text>
+		          <span class="glyphicon glyphicon-plus pull-right accordion-toggle" aria-hidden="true" data-toggle="collapse" data-parent="#accordion" data-target="#searchCompany" style="cursor: pointer"></span>
+		        </h4>
+		      </div>
+		      <div id="searchCompany" class="panel-collapse collapse in">
+		        <div class="panel-body">
+		          	<div class="form-group">
+			          <input type="text" class="form-control" placeholder="Company Name" ng-model="searchCriteria.company">
+			        </div>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="panel panel-default">
+		      <div class="panel-heading">
+		        <h4 class="panel-title">
+		          <text>
+		            Position
+		          </text>
+		          <span class="glyphicon glyphicon-plus pull-right accordion-toggle" aria-hidden="true" data-toggle="collapse" data-parent="#accordion" data-target="#searchPosition" style="cursor: pointer"></span>
+		        </h4>
+		      </div>
+		      <div id="searchPosition" class="panel-collapse collapse in">
+		        <div class="panel-body">
+		          <div class="form-group">
+			          <input type="text" class="form-control" placeholder="Position Info" ng-model="searchCriteria.position">
+			        </div>
+		        </div>
+		      </div>
+		    </div>
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="container-fluid" ng-repeat="result in searchedPeople">
+	      <div class="panel panel-default">
+	        <div class="panel-body" style="padding-top: 5px" ng-click="showUserProfile(result.emailId)">
+	          <!-- <div class="row" > -->
+				<div class="col-md-3 text-center">
+	              <img class="img-circle avatar avatar-original" style="-webkit-user-select:none; 
+	              display:block; margin:auto; max-height: 100px" src="{{result.displayPic}}">
+	              <br>
+	              	<button type="button" class="btn btn-success btn-sm pull-center" ng-show="myservice.loggedIn" ng-click="processFriendship(result.emailId,result.friendshipStatus)">
+					  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{result.friendshipStatus}}
+					</button>
+	            </div>
+	            <div class="col-md-9 col-md-offset-0">
+	                <h3 class="only-bottom-margin" style="padding-top: 10px; padding-left:0px">{{result.fullname}}</h3>
+
+	              <div class="row">
+	                <div class="col-md-8">
+	                  <span class="text-muted">Current Position:</span> {{result.currentPosition}}<br>
+	                  <span class="text-muted">Company:</span> {{result.currentCompany}}<br>
+	                  <!-- <span class="text-muted">Gender:</span> male<br><br> -->
+	                  <small class="text-muted">Joined: 12/12/2016</small>
+	                </div>
+	                <div class="col-md-4 text-right">
+	                    <i class="fa fa-briefcase text-muted">500</i>
+	                  	<i class="fa fa-users text-muted" aria-hidden="true">150</i>
+	                  <br>
+	                  	<button type="button" class="btn btn-default btn-sm">
+						  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Message
+						</button>
+						<br>
+	                </div>
+	              </div>
+	            </div>
+	          <!-- </div>Ng Repeat -->
+	        </div>
+	      </div>
+		</div>
+	</div>
+
+	<div class="col-md-3 text-center">
+		<text> Advertisements </text>
+		<a href="http://www.surfboost.com"><img src="http://www.surfboost.com/ads/SurfBoost-How%20Fast-235x90.gif" width="235" height="90" border="0"></a>
+	</div>
+</div>

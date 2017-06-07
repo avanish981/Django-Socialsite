@@ -1,0 +1,436 @@
+<div class="row">
+
+<!-- <div id="mycarouselCover" class="carousel slide" data-interval="3000" data-ride="carousel">
+  <!-!- Indicators -!->
+  <ol class="carousel-indicators">
+    <li data-target="#mycarouselCover" data-slide-to={{img.idx}} ng-class="{active:!$index}" ng-repeat="img in coverCarouselImages"></li>
+  </ol>
+
+  <!-!- Wrapper for slides -!->
+  <div class="carousel-inner" role="listbox">
+
+    <div class="item" ng-class="{active:!$index}" ng-repeat="img in coverCarouselImages">
+      <img src={{img.src}} data-color={{img.dataColor}} alt={{img.alt}}>
+      <div class="carousel-caption">
+        <h3>{{img.caption}}</h3>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-!- Controls -!->
+  <a class="left carousel-control" data-target="#mycarouselCover" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" data-target="#mycarouselCover" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+ -->
+<!-- <div id="mycarouselCover" class="carousel slide" data-ride="carousel">
+  <!-\- Indicators -\->
+  <ol class="carousel-indicators" >
+    <li data-target="#mycarouselCover" data-slide-to="0" class="active"></li>
+    <li data-target="#mycarouselCover" data-slide-to="1"></li>
+    <li data-target="#mycarouselCover" data-slide-to="2"></li>
+    <li data-target="#mycarouselCover" data-slide-to="3"></li>
+    <li data-target="#mycarouselCover" data-slide-to="4"></li>
+  </ol>
+
+  <!-\- Wrapper for slides -\->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="https://unsplash.it/2000/1024?image=397" data-color="lightblue" alt="First Image">
+      <div class="carousel-caption">
+        <h3>First Image</h3>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://unsplash.it/2000/1024?image=689" data-color="firebrick" alt="Second Image">
+      <div class="carousel-caption">
+        <h3>Second Image</h3>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://unsplash.it/2000/1024?image=675" data-color="violet" alt="Third Image">
+      <div class="carousel-caption">
+        <h3>Third Image</h3>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://unsplash.it/2000/1024?image=658" data-color="lightgreen" alt="Fourth Image">
+      <div class="carousel-caption">
+        <h3>Fourth Image</h3>
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://unsplash.it/2000/1024?image=638" data-color="tomato" alt="Fifth Image">
+      <div class="carousel-caption">
+        <h3>Fifth Image</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-\- Controls -->
+  <!-- <a class="left carousel-control" data-target="#mycarouselCover" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" data-target="#mycarouselCover" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a> -\->
+</div> -->
+
+<div id="carousel-example-generic" class="carousel slide">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to={{img.idx}} ng-class="{active:!$index}" ng-repeat="img in coverCarouselImages"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item" ng-class="{active:!$index}" ng-repeat="img in coverCarouselImages">
+        <img src={{img.src}} data-color={{img.dataColor}} alt={{img.alt}}>
+        
+        <div class="carousel-caption">
+          <h3 data-animation="animated bounceInLeft">
+            {{img.caption}}
+          </h3>
+          <h3 data-animation="animated bounceInRight">
+            {{img.caption}}
+          </h3>
+        </div>
+          <!-- <h3>{{img.caption}}</h3> -->
+      </div>
+    
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" data-target="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" data-target="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div><!-- /.carousel -->
+
+</div>
+
+
+<div class="content-space-one">
+    <div class="text-center">
+
+      <div class="row centered-form">
+            <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+              <div class="panel panel-custom-infoBlock">
+                <div class="panel-heading">
+                  <text class="panel-title">Get Started : It's Free</text>
+                </div>
+                <div class="panel-body">
+                  <form role="form">
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                          <input type="text" name="first_name" id="first_name" ng-model="signUp.first_name" class="form-control input-sm floatlabel" placeholder="First Name">
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                          <input type="text" name="last_name" id="last_name" ng-model="signUp.last_name" class="form-control input-sm" placeholder="Last Name">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <input type="email" name="email" id="email" ng-model="signUp.email" class="form-control input-sm" placeholder="Email Address">
+                    </div>
+
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                          <input type="password" name="password" id="password" ng-model="signUp.password" class="form-control input-sm" placeholder="Password">
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="form-group">
+                          <input type="password" name="password_confirmation" id="password_confirmation" ng-model="signUp.confirmPassword"class="form-control input-sm" placeholder="Confirm Password">
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                    <p style="padding:2%">By clicking Join now, you agree to LinkedIn's User Agreement, Privacy Policy, and Cookie Policy.</p>
+                    </div>
+
+                    <input type="submit" value="Join Now" ng-click="submit()" class="btn btn-warning btn-block">
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+      <!-- <h1>This separates content!</h1>
+      <div class="page-break"></div>
+      <p>Other information can go here</p> -->
+    </div>
+</div>
+
+<hr class="style-one" style="margin: 0"/>
+
+<div class="panel-footer-1">
+  <div class="container" style="padding-top:5%;padding-bottom:5%; ">
+  
+  <div class="row">    
+  <div class="col-md-1 col-md-offset-1">   
+    <div class="icon-wrapper">
+      <div class="custom-icon">
+        <img class="icon icons8-Conference-Call-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAABJ5JREFUaAXtmVuoVVUUhs8+5jVNTc27hFloqaCIGl5RCQvCsBc1fMgH6SGQ3gqhIAoULy+Cb4riJdKHUii8loh4SVCJKFKPWlKo6YOUZqnn9P3bOfdZbucca619jruD7gG/c6wx/jHmGHOdNdfcy7q6mtRWoLYCj8UKFB5Gl01NTV3I+xIYnYCuXy4UCg2MbV9oYh74A4RkLcYObboLCuwENoeqL7Pd4fo7MLfNNURRBfAlyCvL21QzVL8wbwcJ/uyqNsPEWvWRYDHYAE6BziqC8UdQqZx0ObqQ4Dj4BdwAE1u9QZKOAEdBUva6AsYmjRXqz7tcWhwvB1FeB09naag+jUSiKXCOgwll3B/c9eQyeyWXk1zQ94lgzbsTXKaGtxL2oGo2QoKeRH0BngxEX3W2wQFfXtMQF3ApEPgEtnXUMjzgK5nMRmC9C3qV2PcrmkDSeG9o0b93U6I74n/f4qQ1Mt8IHuR85wxOVtcZR3zGCHjN8MVd3MqOoBHExO82L8QIGe234fVWJYwnUmJifx111h1pT27rLDZQk3N2Os1wVnqFcogc/nl7rsIc8UZI/hdJLxuJ98nHCmrXGmbw0lzTyDHKkY4Z5CvUdC3mt+6IYr6KBWL3O0xLX1y662PdPNFC8Wv3jEpaI35bDCXwLyrrroXiQrYLzug3kBDHqiXEb7Zxy3VSjclFHO2ANoVvYqQM9i1wdPzpCf42+DebK8upkfSYkViu95SSsTNIHi/kyyL7ILVzOVanBHybs/xmOomfBeeMCf7BN9UVoh9NeeVDFzuHwLtG8M/4irtkc3U5NRKsMCaQa5srZnoKL+Qe6WIPhJwJ2/KcZT9IJ9n4RMKQqiO3zmT6E9sdIkRsfgEG47eeRYWPf7CyCiwk2q5shnzqGhkA5zeD513aKIrHEcY13hgZP6ug5HAIE/SKTOLNt1D8n8kybzTGZa7xMXB0RLGkT7iq+61p7xHPvu6VyKjT6avOV9yFIjxv9pxZGPwp2vvKxzvlhtB11kaih7VE0ltOV1Np0skRfIzFt16SpbjURrjnPWBvL0XElQbn6hanlDxdneZjSo6AspEa+gbs2UwE14NFIO3h/QnOTGVl7Ap+BWkiTrEZxplAOSy5hnMpeCpb9feK6UPAB8B6Eep3yi7wBvBv5r7oh0BWEbe40ow66iiXcip3TP7EsQm8AsI/MeQA74DrICb/4tgARviVQe8AloCrIK8oRrGlz6jo+mKjOTSXJUdwjvN1FEcM3cAOKwrf52CoD0QfBD4Gv4OWinIoV+nBRh8KNKclepEu8E3owHfYYJ/HNyPRwAyuvwZpb2MouUU5lbt8vvNGppv4hugBXWmQ9uDrriYYXwT7DW5ruzSX/itCc3cHqiUma0SKPRNKpN/t4rwNdNKttmjORa6G9uixhbygIkOi3aGfSzAX3dpJQvGtadPcb7pa+qGrtnJpVCMflVu53uoC+6PH7lgg7KGZVMMAV9PWwCyfyBcVAlYFgv4v0+pooTjCLxUXQcX6ZlX8Um4lqZKvgc9B0c9O9SlFrE/xV9Pder9Lqll1ba7aCtRWoLYCj/YK/AfS4H8crs015QAAAABJRU5ErkJggg==" width="50" height="50">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-md-offset-1">   
+    <div class="row">
+      <text class="landing-heading1">Social Connect</text>
+    </div>
+    <div class="row">
+      <text class="landing-heading3"> My Social Elite provides Social connections as relationships  with the people around you. They may be close, like family, friends, and coworkers, or more distant, like people you know casually. You connect with them thought My Social Elite . </text>
+    </div>
+  </div>
+  <div class="col-md-1 col-md-offset-0">   
+    <div class="icon-wrapper">
+      <div class="custom-icon">
+        <img class="icon icons8-Film-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAbRJREFUaAXtVs1NQzEMbqESJyRm4NQ5OgErwI0bd2ZAbMMgLNFK3YALfG5r9PjyTKK2SfosR3JTf7Ed/8Qvmc1iRAYiA/9lYM6L3xiMXSI/xxj6dTVkpvx/YTnPEfeqVKkfbiriJpA/DSPHrNcRso64hfORc1ORaHar5L1wN0crmr3XEbL2jWa3MtMLr9HsTwhm0zqgsze73Lh4HdwikFfQC+imRlB8s1cJRB1HQPf4/wZ6UOxcMweS2JW3lgxe2KP5X9YTHlor0GdeO5VgeyrBeMJbgorn5sTgAYDeNegZtM3ZGK6zPV1jPOEtQcVzc2KQAOjfgd5BXzlbsk7qu9f5GM5yv4Ilm4zJJAYNALpL0MeYjRKMzdb4/PIefXjNBu+ueG5mPeah3/ZojTiQi2G3znrKY3H6zY4gqn9+zUejpFezeewMEydfiKV+mIEc67zoYfPqT5Ssf5IBGSy4R4t+HyG1LpIsELL8YNx8a/FbRvZk5Ra85Qfjbu4RsyItsn3KHm4rYn61OOJL6xGuppsecRNINDuf0d58NHvvCvD+0eyckdY833NuKtI6kbFfZGBqGfgBbPIAYs0BzokAAAAASUVORK5CYII=" width="50" height="50">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-md-offset-1">   
+    <div class="row">
+      <text class="landing-heading1">Exhibit</text>
+    </div>
+    <div class="row">
+      <text class="landing-heading3"> Connect globally using  My Social Elite. You can now upload your social media inventar for others to see your work . Show your latest presentation  or speaking using Youtube.</text>
+    </div>
+  </div>
+  </div>
+
+  <div class="row" style="padding-top:2.5%">
+    <div class="col-md-1 col-md-offset-1">   
+    <div class="icon-wrapper">
+      <div class="custom-icon">
+        <img class="icon icons8-Resume-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAZ9JREFUaAXtVjtOA0EMTaBDoswB0lHQcAAaBB2HgBtAQc1uh2i4Aj3n4QKUUEKqIMGzRDFrjT3DLDiTWVuy5uPf2M/xZjZzqqsCc+05XyBNbi2bg6SYO5Jg2+49kdoQc0RaQ+QVCd2Al+B78ApcH9H4TdBl+GroXiX0R4nDWHw/9jfywRyu2Zkfe/oWaASDjhvlnMcmsseCLNi5jmNGH9yFL4X+U4ZNsUoY61f7jIgr6BySU6wn4M8Mm2IV7fF/0VpnPwHOse5qwTYmS5SOqv8A3qcHYl2AH8EadalkYHwrOdBsSxF5htMjTJ9r8DsFwPoGvsD2GPwCroekyuD+QHsl5KeKbbFIiyn+vycjiqgZW8uAuPje0tayziEZzxNJlshYwRExLngy3OQR6WkUlhBK27Hy9qGfiJypx4/NICJ+YChv/yDG0f/X22Zaa/KJDCZNOHVie/RUp/TVwFdCV3TTDCI+tUSMNyRoprUmn8hg0sQmlXQXmUoDXxF5VrM2g4hPrSy8DZWaaS1PxLBrskI5IlllMlRyRAyL7aG2sgLfbYOPli7E4+EAAAAASUVORK5CYII=" width="50" height="50">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-md-offset-1">   
+    <div class="row">
+      <text class="landing-heading1">Digital CV</text>
+    </div>
+    <div class="row">
+      <text class="landing-heading3"> Utilize My Social Elite as your professional CV as an Online while connecting with peers  professional .Simply fill in your information using our interactive tool and generate beautiful CV that ensure your job experience can help connect  you with peers or new challenges.  </text>
+    </div>
+  </div>
+  <div class="col-md-1 col-md-offset-0">   
+    <div class="icon-wrapper">
+      <div class="custom-icon">
+        <img class="icon icons8-Passenger-With-Baggage-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAABJ1JREFUaAXtmUtoVUcYx3O1EY1VY3wsWmp84APbgrTgoy60FRR8gJu6MIJRERcupIHiqiBNaETFhQsFXaRKQatUVNCFG0VUNIsqiqUoMSK+FVFDjNZK/H3XM5fvzpk5j+i93iv54J/53t83c86ZM+emoqKXelcgtALd3d3zwRFwJ4Dw80OOpayg4Wbgo+ZS7j3XG93P9c1A6efmAkqVodmTqmEfezJJ/5kkToXyofPn5B4Qk78rk8lUxfhU9IlzKBf7h55Ia4KFSuKTIE0BXbi1Po6HXdaIyZT/9msuNpMp/xeimUzZjaz+GPAruAmEHgI5kiwrm8nQ7DDQAXy0qywmQ/d/+Gag9EtKejI0ulA1G8WeLdmJ0PUQcCuqe2V70ZOJFOvNvoXmPk/YYFdCv+K6sdJz1Gob9rFhHOMpdP3TdlnQK0JDA2nI3ol2ouuIaPQitjpiayJ8QqaCToRqv4ExqmobfBMYpXQ2KxOZBkpj92JFZ4LXwND/MN+B2UbhGb9B3wqugVp7lkWVaaA/+Bdokqsjh8R1Wmnxr5AHgq5Af59xRlGb18UovjFoxAwXYCqDibQYpWO8hO4rS/8CeanOXxSeot8CuY0MSSNfmuLwfxuDY9yD7lNw2GGT81nxPs0pdtpqosFMQkZsTyy7FrO+KDKgURsCfj9j3De+LtdznkJtqoET8HmriPxM2W32B10Z44+g03Lap30KwlPwayC3ktA+MNIuhC7q1gq9O/CfAm4AQ4/snKlksnwGNoB2cAws0gmQ+4GLQGiHtmkeW1PWI/xHnqvQxCUW/QhwALSD1TpfKp7gqiAJQx61IA0Kiplvb9n/5Y0eIvSV4AvwErjol1DQ+1RQcYeraqBrZ5R3g7z8ZFW9+z62bUDeE5uAi+RH7Ow2/T77z+Yi8QJXRY9Ojh9OkgbBUyC70WDwALiozpngXZRUkXvznquaQycPsXc1sX0fxMhbuxasCWR7OP8uPTtjqXDIruKRpbnJziSBEvtmFSs7Wl8gb3IXTY/KlcpG9lWuCh7dT3HJibtixcqhco6lM+LeuHyJ7GQbC6J+7TAFZTwB8l56dhHs44BN68UP5RHbgCyHx6RflHa5tzIJ5JKfAUlIHt6ob4tsUnzsZp+jGyZGxvHgP2CTd+N422nMX7I12Bkj5OUx6aTRpY747ToO+1aHz0N0qT95c3kJvupI6lIdzAV5GIJk15OGNHUijNMhyNXgkXYK+JXaLxVPArnshs7BrAcTA/zMKKfb22B4XGJ8/gQ2rXDF4bTWdkSWz96eEcHmGN7oy4BPtc9m9PgsBjbtNnZ7xPETYO9sEj/L9k0kEzgV/CXOjHIQrAetAYTvF5cIn6HgLtD0D4LzDGbyYZ+nAwI+9hY28aGRBNlfVxibHYlj//dNTIsVJ89F7isxVFAp8Dtmxcr5bbRySc+SwHUeehCViRjXqtZHxWgb8ZOAvEc0bdY+qXky9WQil3UH8L+nLUzMNivHvbQ58vxJlvrWIuaWakIe3qq8pAkEYmrAY5XnRoIwvwuJUj/sxCwB14EcDEf7s0dbiJ0AjoLjYEq0d6+19FbgDfMH3oGcBEW4AAAAAElFTkSuQmCC" width="50" height="50">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-md-offset-1">   
+    <div class="row">
+      <text class="landing-heading1">Calender</text>
+    </div>
+    <div class="row">
+      <text class="landing-heading3"> Integrated calendar  feature helps you   simplify scheduling and eliminate data redundancy and inconsistency w your connections .  Skip the manual email “tag “for  out of town availability  and enjoy  the simplicity of staying  informed and up-to-date while improving  scheduling of the  client meetings. </text>
+    </div>
+  </div>
+  </div>
+
+  </div>
+</div>
+
+<!-- <hr class="style-one" style="margin: 0"/>
+
+<div class="row">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-.- Indicators -/->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+      <li data-target="#myCarousel" data-slide-to="6"></li>
+    </ol>
+
+    <!-/- Wrapper for slides -/->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img class="peopleCarouselImg img-responsive center-block" src="static/angularapp/images/landing_carousel/inspire_01.jpg" alt="Chania">
+      </div>
+      <div class="item">
+        <img class="peopleCarouselImg img-responsive center-block" src="static/angularapp/images/landing_carousel/inspire_02.jpg" alt="Chania">
+      </div>
+      <div class="item">
+        <img class="peopleCarouselImg img-responsive center-block" src="static/angularapp/images/landing_carousel/inspire_03.jpg" alt="Flower">
+      </div>
+      <div class="item">
+        <img class="peopleCarouselImg img-responsive center-block" src="static/angularapp/images/landing_carousel/inspire_04.jpg" alt="Flower">
+      </div>
+      <div class="item">
+        <img class="peopleCarouselImg img-responsive center-block" src="static/angularapp/images/landing_carousel/inspire_05.jpg" alt="Flower">
+      </div>
+      <div class="item">
+        <img class="peopleCarouselImg img-responsive center-block" src="static/angularapp/images/landing_carousel/inspire_06.jpg" alt="Flower">
+      </div>
+      <div class="item">
+        <img class="peopleCarouselImg img-responsive center-block" src="static/angularapp/images/landing_carousel/inspire_07.jpg" alt="Flower">
+      </div>
+    </div>
+
+    <!-/- Left and right controls -/->
+    <a class="left carousel-control" data-target="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" data-target="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div> -->
+<hr class="style-one" style="margin: 0"/>
+<div class="panel-footer">
+<div class="container" style="color: gray">
+  
+  <div class="col-md-3">
+    <div class="row">
+      <p class="text-center"><text class="landing-FooterHeading"><b>At My Social Elite!</b></font></p>
+    </div>  
+    <div class="row">
+      <p class="text-justify"><text class="landing-FooterDescription">You can be together with people who share the common interests! You can reach out to people in a different way? It is the place just for you! Reach out to everyone around the globe with a few clicks.</text></p>
+    </div>
+  </div>
+
+
+  <div class="col-md-3">
+    <div class="row">
+    <p class="text-center"><text class="landing-FooterHeading"><b>Recently Connected!</b></text></p>
+    </div>
+    <div class="row">
+      <table align="center">
+      <tr align="center">
+      <td style="padding: 5%"> <img src="static/angularapp/images/icon_dummy.jpg"></td>
+      <td style="padding: 5%"> <img src="static/angularapp/images/icon_dummy.jpg"></td>
+      <td style="padding: 5%"> <img src="static/angularapp/images/icon_dummy.jpg"></td>
+      </tr>
+      <tr align="center">
+      <td style="padding: 5%"> <img src="static/angularapp/images/icon_dummy.jpg"></td>
+      <td style="padding: 5%"> <img src="static/angularapp/images/icon_dummy.jpg"></td>
+      <td style="padding: 5%"> <img src="static/angularapp/images/icon_dummy.jpg"></td>
+      </tr>
+      <!-- <tr align="center">
+      <td> <img src="static/angularapp/images/icon_dummy.jpg"></td>
+      <td> <img src="static/angularapp/images/icon_dummy.jpg"></td>
+      <td> <img src="static/angularapp/images/icon_dummy.jpg"></td>
+      </tr> -->
+      </table>
+    </div>
+  </div>
+  
+  <div class="col-md-3">
+    <div class="row">
+    <p class="text-center"><text class="landing-FooterHeading"><b>Trending Now...</b></text></p>
+    </div>
+    <div class="row">
+      <table align="center">
+        <tr>
+          <td><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#5C5F62"></span> 
+            <a href="" style="color: gray"><text class="landing-FooterDescription">News Headline: Number 1 is this ...</text></a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#5C5F62"></span> 
+            <a href="" style="color: gray"><text class="landing-FooterDescription">News Headline: Number 2 is this ...</text></a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#5C5F62"></span> 
+            <a href="" style="color: gray"><text class="landing-FooterDescription">News Headline: Number 3 is this ...</text></a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#5C5F62"></span> 
+            <a href="" style="color: gray"><text class="landing-FooterDescription">News Headline: Number 4 is this ...</text></a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#5C5F62"></span> 
+            <a href="" style="color: gray"><text class="landing-FooterDescription">News Headline: Number 5 is this ...</text></a>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="color:#5C5F62"></span> 
+            <a href="" style="color: gray"><text class="landing-FooterDescription">News Headline: Number 6 is this ...</text></a>
+          </td>
+        </tr>
+      </table>
+      
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="row">
+    <p class="text-center"><text class="landing-FooterHeading"><b><a href="/playground" style="color:#5C5F62">My Social Elite</a></b></text></p>
+    </div>
+    <div class="row">
+      <table align="center" style="margin-top: 0">
+        <tr>
+        <td><i class="fa fa-location-arrow" aria-hidden="true" style="color:#5C5F62"></i></td>
+        <td style="padding-left: 10%"><text class="landing-FooterDescription"> 1234, Startup avenue,</text></td>
+        </tr>
+        <tr>
+        <td></td>
+        <td style="padding-left: 10%"><text class="landing-FooterDescription"> Silicon Valley,</text></td>
+        </tr>
+        <tr><td></td><td style="padding-left: 10%"><text class="landing-FooterDescription"> CA 99999</text></td></tr>
+        <tr>
+        <td><i class="fa fa-envelope" aria-hidden="true" style="color:#5C5F62"></i></td>
+        <td style="padding-left: 10%"><text class="landing-FooterDescription"> info@mysocialelite.com</text></td>
+        </tr>
+        <tr>
+        <td><i class="fa fa-phone" aria-hidden="true" style="color:#5C5F62"></i></td>
+        <td style="padding-left: 10%"><text class="landing-FooterDescription"> +1(234)567-8989</text></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<hr class="style-one"/>
+  <!-- AddToAny BEGIN -->
+<div class="row a2a_kit a2a_kit_size_32 a2a_default_style">
+<table align="center">
+<tr>
+<!--<td><a class="a2a_dd" href="https://www.addtoany.com/share"></a></td>-->
+<td><a class="a2a_button_facebook"></a></td>
+<td><a class="a2a_button_twitter"></a></td>
+<td><a class="a2a_button_google_plus"></a></td>
+<td><a class="a2a_button_linkedin"></a></td>
+<td><a class="a2a_button_pinterest"></a></td>
+<td><a class="a2a_button_tumblr"></a></td>
+</tr>
+</table>
+</div>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+</div>
+

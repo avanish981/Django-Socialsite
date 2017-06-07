@@ -1,0 +1,23 @@
+#requirements for unix systems
+#sudo easy_install pip
+django==1.9
+django-sslserver
+#brew install wget
+#
+# To install MysqlDB
+MySQL-python
+#
+# To install Django Rest Framework:
+djangorestframework
+#
+# To install DRF-nested Routers
+drf-nested-routers
+#
+# To install requests
+requests
+# To install mysql connector
+https://cdn.mysql.com/Downloads/Connector-Python/mysql-connector-python-1.0.12.tar.gz
+gunicorn
+
+
+

@@ -1,0 +1,152 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="publicationsController">
+	
+	<div class="panel panel-custom-infoBlock" id="publicationSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Publications.title}}</text> -->
+      <text class="profileInfoCategory-title">Publications</text>
+    </div>
+    
+    <div class="panel-body">
+    <form editable-form name="editableFormPublications" ng-repeat="publication in profileInfo_Publications.publications" ng-show=profileInfo_Publications.visibility>
+      <div class="col-md-11">
+        <div class="col-md-12">
+          <div class="row">
+              <a class="profileInfo-heading1" ng-href="{{publication.publication_url}}" target="_blank" style="color:#5C5F62" editable-text="publication.title" e-placeholder="Title">
+              {{publication.title}}
+              </a>
+              <a editable-text="publication.publication_url" e-placeholder="Publication URL"></a>
+          </div>
+          <div class="row">
+            <text class="profileInfo-heading2" editable-text ="publication.publication_publisher" e-placeholder="Publisher Name">{{publication.publication_publisher}}</text>
+          </div>
+          <div class="row profileInfo-heading3">
+            <text ng-show="editableFormPublications.$visible">Publication Date: </text>
+            <text ng-show=publication.date editable-combodate="publication.date"> {{publication.date | date:"mediumDate"}}</text>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1" ng-if="profileInfo_Publications.publications.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormPublications.$show(); setEditPublicationIndex($index, 1)" ng-show="!editableFormPublications.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>
+
+      <div class="col-md-11">
+        <text class="profileInfo-description" editable-textarea ="publication.description" e-placeholder="Description"> {{publication.description}}</text>
+      </div>
+
+
+      <div class="col-md-11">
+        <text class="profileInfo-description" ng-if="publication.authors.length >= 1"><b>Authors ({{publication.authors.length}}): </b></text>
+        <ul class="openCircleBullets" ng-repeat="author in publication.authors" ng-if="publication.authors.length >= 1">
+          <li class="col-md-11">
+              <text class="profileInfo-description" editable-text="publication.authors[$index].name" e-placeholder="Author Name">{{author.name}}</text>
+          </li>
+          <div class="col-md-1" ng-show="editableFormPublications.$visible" ng-really-message="Are you sure you want to delete all authors?" ng-really-click-publications="removeAuthors($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+        </ul>
+      </div>
+
+      <div class="col-md-12" ng-show="editableFormPublications.$visible">
+        <button type="button" class="btn theme-btn pull-left" ng-click="addNewAuthorRowEditMode($index)">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add an Author</span>
+        </button>
+      </div>
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormPublications.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updatePublication($index)" ng-disabled="editableFormPublications.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormPublications.$waiting" ng-click="editableFormPublications.$cancel(); setEditPublicationIndex($index, 0)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" ng-click="deletePublications($index); editableFormPublications.$cancel()" ng-disabled="editableFormPublications.$waiting">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button>
+        </span>
+      </div>     
+      <div class="col-md-12"><hr class="style-one"></div>
+      </form>
+
+      <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormPublicationsNew.$show()" ng-show="!editableFormPublicationsNew.$visible">
+          Add Publication <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+     </div>
+
+    <form editable-form name="editableFormPublicationsNew" ng-show="editableFormPublicationsNew.$visible">
+    <div class="col-md-12">
+		<div class="editor">
+			<span class="col-md-2"><text class="labels">Title: </text></span>
+			<span class=""><text editable-text="publicationNew.title" e-placeholder="Title"></text></span>
+		</div>
+		<div class="editor">
+			<span class="col-md-2"><text class="labels">Pubication URL: </text></span>
+			<span class=""><text editable-text="publicationNew.publication_url" e-placeholder="Publication URL"></text></span>
+		</div>
+		<div class="editor">
+			<span class="col-md-2"><text class="labels">Publisher: </text></span>
+			<span class=""><text editable-text="publicationNew.publication_publisher" e-placeholder="Publisher Name"></text></span>
+			<img class="profileInfo-logo pull-right" src="{{publicationNew.logo_url}}">
+		</div>          
+
+       	<div class="editor">
+        	<span class="col-md-2"><text class="labels" >Publication Date: </text></span>
+        	<text editable-combodate="publicationNew.date"></text>
+        </div>
+
+        <div class="editor">
+			<span class="col-md-2"><text class="labels" style="vertical-align: top">Description: </text></span>
+			<text editable-textarea="publicationNew.description" e-placeholder="Description"></text>
+		</div>
+
+		<div class="editor">
+				<span class="col-md-2"><text class="labels">Authors: </text></span>
+				<span class="">
+			    	<button type="button" class="btn theme-btn pull-left" ng-click="addNewAuthorRow()">
+		          		<span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add an author </span>
+		        	</button>
+		        </span>
+			</div>
+
+			<div class="editor">
+				<div class="col-md-12" ng-repeat="author in publicationNew.authors">
+          <div class="col-md-11">
+  					<text editable-text="publicationNew.authors[$index].name" e-placeholder="Author Name"></text>
+          </div>
+          <div class="col-md-1" ng-click="removeNewAuthors($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+				</div>
+			</div>
+
+    	</div>
+
+    	<div class="col-md-12">
+    		<hr>
+	      <!-- buttons to submit / cancel form -->
+	      <span ng-show="editableFormPublicationsNew.$visible">
+	        <button type="submit" class="btn btn-success" ng-click="addNewPublication()" ng-disabled="editableFormPublicationsNew.$waiting">
+	          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+	        </button>
+	        <button type="button" class="btn btn-danger" ng-disabled="editableFormPublicationsNew.$waiting" ng-click="editableFormPublicationsNew.$cancel(); discardPublication();">
+	          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+	        </button>
+	      </span>
+	    </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+	
+	</form>
+
+    </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,55 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="userEducationController">
+
+	<div class="panel panel-custom-infoBlock" id="educationSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Education.title}}</text> -->
+      <text class="profileInfoCategory-title">Education</text>
+    </div>
+    
+    <div class="panel-body" ng-repeat="education in profileInfo_Education.education">
+    <!-- <form editable-form name="editableFormEducation" ng-repeat="education in profileInfo_Education.education" ng-show=profileInfo_Education.visibility> -->
+      <div class="col-md-12">
+        <div class="col-md-10">
+          <div class="row"><text class="profileInfo-heading1" >{{education.schoolName}}</text></div>
+          <div class="row">
+            <text class="profileInfo-heading2">{{education.degree}}</text>
+            <text class="profileInfo-heading2" ng-show=education.fieldOfStudy>, {{education.fieldOfStudy}}</text>
+          </div>
+          <div class="row profileInfo-heading3">
+            <text ng-show=education.startTime> {{education.startTime | date:"mediumDate"}}</text>
+            <text ng-show=education.endTime> - {{education.endTime | date:"mediumDate"}}</text>
+          </div>
+
+          <div class="row">
+            <text class="profileInfo-description" ng-if="education.activitiesAndSociety.length > 0"> <b> Activity and Society: </b></text>
+            <ul class="openCircleBullets" ng-repeat="activity in education.activitiesAndSociety" ng-if="education.activitiesAndSociety.length > 0">
+              <li class="col-md-11">
+                  <text class="profileInfo-description">{{activity.name}}</text>
+              </li>
+            </ul>
+          </div>
+
+          <div class="row" ng-show="education.grade">
+            <text class="profileInfo-heading3"> Grade: </text>
+            <text class="profileInfo-description"> {{education.grade}} </text>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <img class="profileInfo-logo pull-right" src="{{education.school_logo}}">
+        </div>
+      </div>
+
+      <div class="col-md-12">
+      <text class="profileInfo-description"> {{education.description}}</text>
+      </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+    <!-- </form> -->
+
+
+    </div>
+  </div>
+
+
+</div>

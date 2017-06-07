@@ -1,0 +1,375 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="volunteeringController">
+
+	<div class="panel panel-custom-infoBlock" id="volunteeringSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Volunteering.title}}</text> -->
+      <text class="profileInfoCategory-title">Volunteering</text>
+    </div>
+    
+    <div class="panel-body">
+    <form editable-form name="editableFormVolunteering" ng-repeat="volunteer in profileInfo_Volunteering.volunteering" ng-show=profileInfo_Volunteering.visibility >
+      <div class="col-md-11">
+        <div class="col-md-10">
+          <div class="row"><text class="profileInfo-heading1" editable-text="volunteer.role" e-placeholder="Role">{{volunteer.role}}</text></div>
+          <div class="row"><text class="profileInfo-heading2" editable-text="volunteer.organizationName" e-placeholder="Organization Name">{{volunteer.organizationName}}</text></div>
+          <div class="row profileInfo-heading3">
+            <text ng-show="editableFormVolunteering.$visible">Start Date: </text>
+            <text ng-show=volunteer.startTime  editable-combodate="volunteer.startTime">{{volunteer.startTime | date:"mediumDate"}}</text>
+            <text ng-show="editableFormVolunteering.$visible">End Date: </text>
+            <text ng-show=volunteer.endTime editable-combodate="volunteer.endTime"> - {{volunteer.endTime | date:"mediumDate"}}</text>
+            <text ng-show=volunteer.cause editable-text="volunteer.cause" e-placeholder="Cause"> | {{volunteer.cause}}</text>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <img class="profileInfo-logo pull-right" src="{{volunteer.logo_url}}">
+        </div>
+      </div>
+      <div class="col-md-1" ng-if="profileInfo_Volunteering.volunteering.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormVolunteering.$show()" ng-show="!editableFormVolunteering.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>
+
+      <div class="col-md-11">
+      <text class="profileInfo-description" editable-text="volunteer.description" e-placeholder="Description"> {{volunteer.description}}</text>
+      </div>
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormVolunteering.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateVolunteer($index)" ng-disabled="editableFormVolunteering.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormVolunteering.$waiting" ng-click="editableFormVolunteering.$cancel()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" ng-click="deleteVolunteer($index); editableFormVolunteering.$cancel()" ng-disabled="editableFormVolunteering.$waiting">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button>
+        </span>
+      </div>   
+      </form>
+
+      <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormVolunteeringNew.$show()" ng-show="!editableFormVolunteeringNew.$visible">
+          Add Volunteering Experience <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+     </div>
+
+     <form editable-form name="editableFormVolunteeringNew" ng-show=editableFormVolunteeringNew.$visible >
+      <div class="col-md-12">
+        <div class="editor">
+          <span class="col-md-2"><text class="labels">Organization Name: </text></span>
+          <span class=""><text editable-text="volunteeringNewExperience.organizationName" e-placeholder="Organization Name"></text></span>
+        </div>
+        
+        <div class="editor">
+          <span class="col-md-2"><text class="labels">Role: </text></span>
+          <span class=""><text editable-text="volunteeringNewExperience.role" e-placeholder="Role"></text></span>
+          <img class="profileInfo-logo pull-right" src="{{volunteeringNewExperience.logo_url}}">
+        </div>          
+
+        <div class="editor">
+          <span class="col-md-2"><text class="labels">Cause: </text></span>
+          <span class=""><text editable-text="volunteeringNewExperience.cause" e-placeholder="Cause"></text></span>
+        </div>
+
+        <div class="editor">
+          <span class="col-md-2"><text class="labels" >Start Date: </text></span>
+          <text editable-combodate="volunteeringNewExperience.startTime"></text>
+        </div>
+
+            
+        <div class="editor">
+          <span class="col-md-2"><text class="labels" >End Date: </text></span>
+          <text editable-combodate="volunteeringNewExperience.endTime"></text>
+        </div>
+
+        <div class="editor">
+          <span class="col-md-2"><text class="labels" style="vertical-align: top">Description: </text></span>
+          <text editable-textarea="volunteeringNewExperience.description" e-placeholder="Description"></text>
+        </div>
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormVolunteeringNew.$visible">
+          <button type="submit" class="btn btn-success" ng-click="addNewVolunteeringExperience()" ng-disabled="editableFormVolunteeringNew.$waiting">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+          </button>
+          <button type="button" class="btn btn-danger" ng-disabled="editableFormVolunteeringNew.$waiting" ng-click="editableFormVolunteeringNew.$cancel(); discardVolunteeringExperience();">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+          </button>
+        </span>
+      </div>
+
+      <!-- <div class="col-md-12"><hr class="style-one"></div> -->
+
+      </div>
+     </form>
+
+
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+      <form editable-form name="editableFormVolunteeringOpportunities">
+      <div class="col-md-11"><!-- ng-if="profileInfo_Volunteering.opportunitiesLookingFor.length >= 1" -->
+        <div class=""> <text class="profileInfo-heading1"> Opportunities you are looking for: </text> </div>
+        <div class=""> <text class="profileInfo-heading3"> How would you like to donate your time and talent?</text> </div>
+        <div class="" ng-show=profileInfo_Volunteering.visibility>
+        <ul class="openCircleBullets" ng-repeat="opportunity in profileInfo_Volunteering.opportunitiesLookingFor">
+          <li class="col-md-11">
+            <text class="profileInfo-description" editable-text="profileInfo_Volunteering.opportunitiesLookingFor[$index].name" e-placeholder="Opportunities like...">{{opportunity.name}}</text>
+          </li>
+          <div class="col-md-1" ng-show="editableFormVolunteeringOpportunities.$visible" ng-really-message="Are you sure you want to delete all the opportunities?" ng-really-click-opportunities="removeOpportunity($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+        </ul>
+        </div>
+      </div>
+ 
+      <div class="col-md-1" ng-if="profileInfo_Volunteering.opportunitiesLookingFor.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormVolunteeringOpportunities.$show()" ng-show="!editableFormVolunteeringOpportunities.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>  
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormVolunteeringOpportunities.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateOpportunities()" ng-disabled="editableFormVolunteeringOpportunities.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormVolunteeringOpportunities.$waiting" ng-click="editableFormVolunteeringOpportunities.$cancel()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <!-- <button type="submit" class="btn btn-danger" ng-click="deleteOpportunities($index); editableFormVolunteeringOpportunities.$cancel()" ng-disabled="editableFormVolunteeringOpportunities.$waiting">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button> -->
+        </span>
+      </div>   
+      </form>
+
+      <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormVolunteeringOpportunitiesNew.$show()" ng-show="!editableFormVolunteeringOpportunitiesNew.$visible">
+          Add Opportunities <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+    </div>
+
+    <form editable-form name="editableFormVolunteeringOpportunitiesNew" ng-show=editableFormVolunteeringOpportunitiesNew.$visible>
+      <div class="col-md-12" ng-repeat="opportunityNew in volunteeringNewOpportunities">
+        <div class="col-md-11">
+          <div class="editor">
+            <span class="col-md-2"><text class="labels">Opportunity: </text></span>
+          <span class=""><text editable-text="opportunityNew.name" e-placeholder="Opportunity"></text></span>
+          </div>
+        </div>
+        <div class="col-md-1" ng-click="removeNewOpportunity($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+        <div class="col-md-12"><hr></div>
+      </div>
+
+      <div class="col-md-12">
+        <button type="button" class="btn theme-btn pull-left" ng-click="addNewOpportunitiesRow()">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add an opportunity</span>
+          </button>
+        </div>
+
+      <div class="col-md-12">
+          <hr>
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormVolunteeringOpportunitiesNew.$visible">
+          <button type="submit" class="btn btn-success" ng-click="saveNewVolunteeringOpportunities()" ng-disabled="editableFormVolunteeringOpportunitiesNew.$waiting">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+          </button>
+          <button type="button" class="btn btn-danger" ng-disabled="editableFormVolunteeringOpportunitiesNew.$waiting" ng-click="editableFormVolunteeringOpportunitiesNew.$cancel(); discardVolunteeringOpportunities();">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+          </button>
+        </span>
+      </div>
+
+      <!-- <div class="col-md-12"><hr class="style-one"></div> -->
+    </form>
+
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+      <form editable-form name="editableFormVolunteeringCauses">
+      <div class="col-md-11" ><!-- ng-if="profileInfo_Volunteering.causes.length >= 1" -->
+        <div class=""> <text class="profileInfo-heading1"> Causes you care about: </text> </div>
+        <div class=""> <text class="profileInfo-heading3"> Topics and causes that matter to you:</text> </div>
+        <div class="" ng-show=profileInfo_Volunteering.visibility>
+        <ul class="openCircleBullets" ng-repeat="cause in profileInfo_Volunteering.causes">
+          <li class="col-md-11">
+            <text class="profileInfo-description" editable-text="profileInfo_Volunteering.causes[$index].name" e-placeholder="Causes like...">{{cause.name}}</text>
+          </li>
+          <div class="col-md-1" ng-show="editableFormVolunteeringCauses.$visible" ng-really-message="Are you sure you want to delete all the causes?" ng-really-click-causes="removeCauses($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+        </ul>
+        </div>
+      </div>
+
+      <div class="col-md-1" ng-if="profileInfo_Volunteering.causes.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormVolunteeringCauses.$show()" ng-show="!editableFormVolunteeringCauses.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>  
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormVolunteeringCauses.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateCauses()" ng-disabled="editableFormVolunteeringCauses.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormVolunteeringCauses.$waiting" ng-click="editableFormVolunteeringCauses.$cancel()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <!-- <button type="submit" class="btn btn-danger" ng-click="deleteCauses($index); editableFormVolunteeringCauses.$cancel()" ng-disabled="editableFormVolunteeringCauses.$waiting">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button> -->
+        </span>
+      </div>   
+
+      </form>
+
+      <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormVolunteeringCausesNew.$show()" ng-show="!editableFormVolunteeringCausesNew.$visible">
+          Add Causes <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+    </div>
+
+    <form editable-form name="editableFormVolunteeringCausesNew" ng-show=editableFormVolunteeringCausesNew.$visible>
+      <div class="col-md-12" ng-repeat="causeNew in volunteeringNewCauses">
+        <div class="col-md-11">
+          <div class="editor">
+            <span class="col-md-2"><text class="labels">Cause: </text></span>
+          <span class=""><text editable-text="causeNew.name" e-placeholder="Cause"></text></span>
+          </div>
+        </div>
+        <div class="col-md-1" ng-click="removeNewCauses($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+        <div class="col-md-12"><hr></div>
+      </div>
+
+      <div class="col-md-12">
+        <button type="button" class="btn theme-btn pull-left" ng-click="addNewCausesRow()">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add a cause</span>
+          </button>
+        </div>
+
+      <div class="col-md-12">
+          <hr>
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormVolunteeringCausesNew.$visible">
+          <button type="submit" class="btn btn-success" ng-click="saveNewVolunteeringCauses()" ng-disabled="editableFormVolunteeringCausesNew.$waiting">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+          </button>
+          <button type="button" class="btn btn-danger" ng-disabled="editableFormVolunteeringCausesNew.$waiting" ng-click="editableFormVolunteeringCausesNew.$cancel(); discardVolunteeringCauses();">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+          </button>
+        </span>
+      </div>
+
+      <!-- <div class="col-md-12"><hr class="style-one"></div> -->
+    </form>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+      <form editable-form name="editableFormVolunteeringOrganizations">
+      <div class="col-md-11" ><!-- ng-if="profileInfo_Volunteering.organizationSupported.length >= 1" -->
+        <div class=""> <text class="profileInfo-heading1"> Organizations you suppport: </text> </div>
+        <div class=""> <text class="profileInfo-heading3"> What are your favorite organizations? </text> </div>
+        <div class="">
+        <ul class="openCircleBullets" ng-repeat="organization in profileInfo_Volunteering.organizationSupported">
+          <li class="col-md-11">
+            <text class="profileInfo-description" editable-text="profileInfo_Volunteering.organizationSupported[$index].name" e-placeholder="Organization like...">{{organization.name}}</text>
+          </li>
+          <div class="col-md-1" ng-show="editableFormVolunteeringOrganizations.$visible" ng-really-message="Are you sure you want to delete all the Organizations supported?" ng-really-click-organization="removeOrganizations($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+        </ul>
+        </div>
+      </div>
+
+      <div class="col-md-1" ng-if="profileInfo_Volunteering.organizationSupported.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormVolunteeringOrganizations.$show()" ng-show="!editableFormVolunteeringOrganizations.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>  
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormVolunteeringOrganizations.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateOrganizations()" ng-disabled="editableFormVolunteeringOrganizations.$waiting">
+            Save
+          </button>
+          <button type="button" class="btn btn-danger" ng-disabled="editableFormVolunteeringOrganizations.$waiting" ng-click="editableFormVolunteeringOrganizations.$cancel()">
+            Cancel
+          </button>
+        </span>
+      </div>   
+
+      </form>
+
+      <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormVolunteeringOrganizationsNew.$show()" ng-show="!editableFormVolunteeringOrganizationsNew.$visible">
+          Add Organizations <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+    </div>
+
+    <form editable-form name="editableFormVolunteeringOrganizationsNew" ng-show=editableFormVolunteeringOrganizationsNew.$visible>
+      <div class="col-md-12" ng-repeat="orgNew in volunteeringNewOrganizations">
+        <div class="col-md-11">
+          <div class="editor">
+            <span class="col-md-3"><text class="labels">Organization Name: </text></span>
+          <span class=""><text editable-text="orgNew.name" e-placeholder="Organization"></text></span>
+          </div>
+        </div>
+        <div class="col-md-1" ng-click="removeNewOrganizations($index)">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+        <div class="col-md-12"><hr></div>
+      </div>
+
+      <div class="col-md-12">
+        <button type="button" class="btn theme-btn pull-left" ng-click="addNewOrganizationsRow()">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add an organization</span>
+          </button>
+        </div>
+
+      <div class="col-md-12">
+          <hr>
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormVolunteeringOrganizationsNew.$visible">
+          <button type="submit" class="btn btn-success" ng-click="saveNewVolunteeringOrganizations()" ng-disabled="editableFormVolunteeringOrganizationsNew.$waiting">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+          </button>
+          <button type="button" class="btn btn-danger" ng-disabled="editableFormVolunteeringOrganizationsNew.$waiting" ng-click="editableFormVolunteeringOrganizationsNew.$cancel(); discardVolunteeringOrganizations();">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+          </button>
+        </span>
+      </div>
+
+      <!-- <div class="col-md-12"><hr class="style-one"></div> -->
+    </form>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+      
+    <!-- </form> -->
+    </div>
+    
+  </div>
+
+
+</div>

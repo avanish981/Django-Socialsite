@@ -1,0 +1,4 @@
+# To run the server on AWS
+cd MySocialElite/
+mysql -u root -p fifty_plus_cafe < Untitled.sql
+sudo nohup python manage.py runsslserver 0.0.0.0:443

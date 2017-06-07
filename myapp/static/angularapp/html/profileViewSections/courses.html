@@ -1,0 +1,32 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="userCoursesController">
+
+<div class="panel panel-custom-infoBlock" id="courseSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Courses.title}}</text> -->
+      <text class="profileInfoCategory-title">Courses</text>
+    </div>
+    
+    <div class="panel-body" ng-repeat="course in profileInfo_Courses.courses">
+    <!-- <form editable-form name="editableFormCourses" ng-repeat="course in profileInfo_Courses.courses" ng-show=profileInfo_Courses.visibility> -->
+      <div class="col-md-12">
+          <text class="profileInfo-heading1">{{course.associatedWith}}</text>
+      </div>
+
+      <div class="col-md-12">
+        <!-- <text class="profileInfo-description"> {{name}}</text> -->
+        <ul class="openCircleBullets" ng-repeat="info in course.courseInfo">
+          <li class="col-md-11">
+              <text class="profileInfo-description">{{info.name}}</text>
+              <text class="profileInfo-description" ng-show=info.number >({{info.number}})</text>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+    <!-- </form> -->
+    </div>
+  
+  </div>
+
+
+</div>

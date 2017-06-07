@@ -1,0 +1,191 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="educationController">
+
+	<div class="panel panel-custom-infoBlock" id="educationSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Education.title}}</text> -->
+      <text class="profileInfoCategory-title">Education</text>
+    </div>
+    
+    <div class="panel-body" >
+    <form editable-form name="editableFormEducation" ng-repeat="education in profileInfo_Education.education" ng-show=profileInfo_Education.visibility>
+      <div class="col-md-11">
+        <div class="col-md-10">
+          <div class="row"><text class="profileInfo-heading1" editable-text ="education.schoolName" e-placeholder="School Name">{{education.schoolName}}</text></div>
+          <div class="row">
+            <text class="profileInfo-heading2" editable-text ="education.degree" e-placeholder="Degree">{{education.degree}}</text>
+            <text class="profileInfo-heading2" ng-show=education.fieldOfStudy editable-text ="education.fieldOfStudy" e-placeholder="Field of Study">, {{education.fieldOfStudy}}</text>
+          </div>
+          <div class="row profileInfo-heading3">
+            <text ng-show="editableFormEducation.$visible">Start Date: </text>
+            <text ng-show=education.startTime editable-combodate="education.startTime"> {{education.startTime | date:"mediumDate"}}</text>
+            <text ng-show="editableFormEducation.$visible">End Date: </text>
+            <text ng-show=education.endTime editable-combodate="education.endTime"> - {{education.endTime | date:"mediumDate"}}</text>
+          </div>
+
+
+          <!-- <div class="row" ng-if="education.activitiesAndSociety.length > 0"> 
+            <text class="profileInfo-description">Activity and Society: </text>
+            <text class="profileInfo-description" ng-repeat="activity in education.activitiesAndSociety" editable-text="education.activitiesAndSociety[$index].name" e-placeholder="Activity/Society Name"> {{activity.name}}   </text>
+          </div> -->
+
+          <div class="row">
+            <text class="profileInfo-description" ng-if="education.activitiesAndSociety.length > 0"> <b> Activity and Society: </b></text>
+            <ul class="openCircleBullets" ng-repeat="activity in education.activitiesAndSociety" ng-if="education.activitiesAndSociety.length > 0">
+              <li class="col-md-11">
+                  <text class="profileInfo-description" editable-text="education.activitiesAndSociety[$index].name" e-placeholder="Activity/Society Name">{{activity.name}}</text>
+              </li>
+              <div class="col-md-1" ng-show="editableFormEducation.$visible" ng-click="removeActivity($index)">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+              </div>
+            </ul>
+          </div>
+
+          <div class="row" ng-show="editableFormEducation.$visible">
+            <button type="button" class="btn theme-btn pull-left" ng-click="addNewActivityRowEditMode($index)">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add a activity or society </span>
+            </button>
+          </div>
+
+
+          <!-- <div class="row" ng-show=profileInfo_Education.visibility>
+          	<div><text class="profileInfo-heading3"> Activity and Society: </text></div>
+          	<div>
+		        <ul class="openCircleBullets" ng-repeat="activity in education.activitiesAndSociety">
+		          <li>
+		            <text class="profileInfo-description" editable-text="activity" e-placeholder="Activity">{{activity}}</text>
+		          </li>
+		        </ul>
+	        </div>
+	      </div> -->
+
+          <div class="row" ng-show="education.grade">
+            <text class="profileInfo-heading3"> Grade: </text>
+            <text class="profileInfo-description" editable-text ="education.grade" e-placeholder="Grade"> {{education.grade}} </text>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <img class="profileInfo-logo pull-right" src="{{education.school_logo}}">
+        </div>
+      </div>
+
+      <div class="col-md-1" ng-if="profileInfo_Education.education.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormEducation.$show(); setEditEducationIndex($index,1)" ng-show="!editableFormEducation.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>
+
+      <div class="col-md-11">
+      <text class="profileInfo-description" editable-textarea ="education.description" e-placeholder="Description"> {{education.description}}</text>
+      </div>
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span class="container" ng-show="editableFormEducation.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateEducation($index)" ng-disabled="editableFormEducation.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormEducation.$waiting" ng-click="editableFormEducation.$cancel(); setEditEducationIndex($index,0)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" ng-click="deleteEducation($index); editableFormEducation.$cancel()" ng-disabled="editableFormEducation.$waiting">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button>
+        </span>
+      </div>     
+
+      <div class="col-md-12"><hr class="style-one"></div>
+    </form>
+
+    <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormEducationNew.$show()" ng-show="!editableFormEducationNew.$visible">
+          Add Education <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+     </div>
+
+    <form editable-form name="editableFormEducationNew" ng-show="editableFormEducationNew.$visible">
+
+      <div class="col-md-12">
+  		<div class="editor">
+  			<span class="col-md-2"><text class="labels">School Name: </text></span>
+  			<span class=""><text editable-text="educationNew.schoolName" e-placeholder="School Name"></text></span>
+  		</div>
+  		<div class="editor">
+  			<span class="col-md-2"><text class="labels">Degree: </text></span>
+  			<span class=""><text editable-text="educationNew.degree" e-placeholder="Degree"></text></span>
+  			<img class="profileInfo-logo pull-right" src="{{educationNew.logo_url}}">
+  		</div>          
+
+  		<div class="editor">
+  			<span class="col-md-2"><text class="labels">Field of Study: </text></span>
+  			<span class=""><text editable-text="educationNew.fieldOfStudy" e-placeholder="Field of Sudy"></text></span>
+  		</div>
+
+
+         	<div class="editor">
+          	<span class="col-md-2"><text class="labels" >Start Date: </text></span>
+          	<text editable-combodate="educationNew.startTime"></text>
+          </div>
+
+            
+		<div class="editor">
+			<span class="col-md-2"><text class="labels" >End Date: </text></span>
+			<text editable-combodate="educationNew.endTime"></text>
+		</div>
+
+		<div class="editor">
+			<span class="col-md-2"><text class="labels" >Grade: </text></span>
+			<text editable-text="educationNew.grade" e-placeholder="Grade"></text>
+		</div>
+
+		<div class="editor">
+			<span class="col-md-2"><text class="labels" style="vertical-align: top">Description: </text></span>
+			<text editable-textarea="educationNew.description" e-placeholder="Description"></text>
+		</div>
+
+    <div class="editor">
+        <span class="col-md-2"><text class="labels">Activity and Society: </text></span>
+        <span class="">
+            <button type="button" class="btn theme-btn pull-left" ng-click="addNewActivityRow()">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add an activity or society </span>
+              </button>
+            </span>
+      </div>
+
+      <div class="editor">
+        <div class="" ng-repeat="activity in educationNew.activitiesAndSociety">
+        <div class="col-md-11">
+          <text editable-text="educationNew.activitiesAndSociety[$index].name" e-placeholder="Activity/Society Name"></text>
+        </div>
+        <div class="col-md-1" ng-click="removeNewActivity($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+
+
+	    <div class="col-md-12">
+	      <!-- buttons to submit / cancel form -->
+	      <span ng-show="editableFormEducationNew.$visible">
+	        <button type="submit" class="btn btn-success" ng-click="addNewEducation()" ng-disabled="editableFormEducationNew.$waiting">
+	          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+	        </button>
+	        <button type="button" class="btn btn-danger" ng-disabled="editableFormEducationNew.$waiting" ng-click="editableFormEducationNew.$cancel(); discardEducation();">
+	          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+	        </button>
+	      </span>
+	    </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+      </div>
+    </form>
+
+
+    </div>
+  </div>
+
+
+</div>

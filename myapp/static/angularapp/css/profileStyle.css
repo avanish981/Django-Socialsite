@@ -1,0 +1,115 @@
+.profileBackground {
+  background-color: #FFFFFF;
+}
+
+/*Top Profile Block */
+.outerCoverContainer {
+  width: 100%;
+  height: 300px;
+  background-image: url("https://unsplash.it/975/300");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: 0px 0px 5px 5px #888888;
+}
+
+.profileImg {
+  max-height: 280px;
+  position: absolute;
+  z-index: 1;
+  -webkit-box-shadow: 0 8px 6px -6px black;
+     -moz-box-shadow: 0 8px 6px -6px black;
+          box-shadow: 0 8px 6px -6px black;
+}
+
+.profileImgContainer {
+  margin-left: 30px;
+  margin-top: 100px;
+}
+
+.infoContainer {
+  width: 100%;
+  height: 100px;
+  opacity: 1;
+  color: #C3C4C5;
+  background: #5C5F62;
+  box-shadow: 0px 0px 5px 5px #888888;
+}
+
+.nameInfo {
+  padding-top: 10px;
+}
+
+blockquote {
+border:none;
+font-family:Georgia, "Times New Roman", Times, serif;
+position: relative; 
+margin: 10 auto; 
+padding-left: 0.4em; 
+}
+
+blockquote:before { 
+    content: "\201C";
+    font-size:50px;
+    color:#5C5F62;
+    position: absolute; 
+    top: 0em;
+    left: 0em; 
+    font-family: 'Georgia'; 
+}
+
+.jumperButtons {
+  background-color: #5C5F62; 
+  color: #C3C4C5;
+  margin-top: 10px;
+  border-radius: 0px;
+  border-left: 1px solid #C3C4C5;
+  border-right: 1px solid #C3C4C5;
+  font-style: bold;
+  font-size: 1.2em;
+  /*font-style: italic;*/
+}
+
+.jumperButtons:hover {
+    color: #C3C4C5;
+}
+
+/*
+.modal-dialog {
+  width: 80%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex !important;
+}
+
+.modal-content {
+  height: auto;
+  max-height: 100%;
+}
+
+.modal-body {
+  max-height: 100%;
+}
+*/
+
+.modal-vertical-centered {
+  transform: translate(0, 0%) !important;
+  -ms-transform: translate(0, 0%) !important; /* IE 9 */
+  -webkit-transform: translate(0, 0%) !important; /* Safari and Chrome */
+  width: 80%;
+  height: 100%;
+}
+
+.modalImg {
+  max-height: 80%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.profileImageLib {
+  max-height:250px; 
+  height:auto;
+  width: auto;
+  max-width: 100%;
+}

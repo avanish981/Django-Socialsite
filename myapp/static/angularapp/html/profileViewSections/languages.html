@@ -1,0 +1,19 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="userLanguagesController">
+
+	<div class="panel panel-custom-infoBlock" ng-show=profileInfo_Languages.visibility id="languageSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Languages.title}}</text> -->
+      <text class="profileInfoCategory-title">Languages</text>
+    </div>
+    
+    <div class="panel-body">
+    <!-- <form editable-form name="editableFormLanguages"> -->
+        <div class="col-md-12" ng-repeat="language in profileInfo_Languages.languages"> 
+          <text class="profileInfo-description"> {{language}} </text>
+        </div>
+      <div class="col-md-12" ng-if="profileInfo_Languages.languages.length >= 1"><hr class="style-one"></div>
+    <!-- </form> -->
+
+    </div>
+    </div>
+</div>

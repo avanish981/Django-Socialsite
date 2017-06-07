@@ -1,0 +1,301 @@
+[
+    {
+        "fullname": "Alabama",
+        "recentInfo": "AL",
+        "displayPic": "https://unsplash.it/512/512?image=1"
+    },
+    {
+        "fullname": "Alaska",
+        "recentInfo": "AK",
+        "displayPic": "https://unsplash.it/512/512?image=2"
+    },
+    {
+        "fullname": "American Samoa",
+        "recentInfo": "AS",
+        "displayPic": "https://unsplash.it/512/512?image=3"
+    },
+    {
+        "fullname": "Arizona",
+        "recentInfo": "AZ",
+        "displayPic": "https://unsplash.it/512/512?image=4"
+    },
+    {
+        "fullname": "Arkansas",
+        "recentInfo": "AR",
+        "displayPic": "https://unsplash.it/512/512?image=5"
+    },
+    {
+        "fullname": "California",
+        "recentInfo": "CA",
+        "displayPic": "https://unsplash.it/512/512?image=6"
+    },
+    {
+        "fullname": "Colorado",
+        "recentInfo": "CO",
+        "displayPic": "https://unsplash.it/512/512?image=7"
+    },
+    {
+        "fullname": "Connecticut",
+        "recentInfo": "CT",
+        "displayPic": "https://unsplash.it/512/512?image=8"
+    },
+    {
+        "fullname": "Delaware",
+        "recentInfo": "DE",
+        "displayPic": "https://unsplash.it/512/512?image=9"
+    },
+    {
+        "fullname": "District Of Columbia",
+        "recentInfo": "DC",
+        "displayPic": "https://unsplash.it/512/512?image=10"
+    },
+    {
+        "fullname": "Federated States Of Micronesia",
+        "recentInfo": "FM",
+        "displayPic": "https://unsplash.it/512/512?image=11"
+    },
+    {
+        "fullname": "Florida",
+        "recentInfo": "FL",
+        "displayPic": "https://unsplash.it/512/512?image=12"
+    },
+    {
+        "fullname": "Georgia",
+        "recentInfo": "GA",
+        "displayPic": "https://unsplash.it/512/512?image=13"
+    },
+    {
+        "fullname": "Guam",
+        "recentInfo": "GU",
+        "displayPic": "https://unsplash.it/512/512?image=14"
+    },
+    {
+        "fullname": "Hawaii",
+        "recentInfo": "HI",
+        "displayPic": "https://unsplash.it/512/512?image=15"
+    },
+    {
+        "fullname": "Idaho",
+        "recentInfo": "ID",
+        "displayPic": "https://unsplash.it/512/512?image=16"
+    },
+    {
+        "fullname": "Illinois",
+        "recentInfo": "IL",
+        "displayPic": "https://unsplash.it/512/512?image=17"
+    },
+    {
+        "fullname": "Indiana",
+        "recentInfo": "IN",
+        "displayPic": "https://unsplash.it/512/512?image=18"
+    },
+    {
+        "fullname": "Iowa",
+        "recentInfo": "IA",
+        "displayPic": "https://unsplash.it/512/512?image=19"
+    },
+    {
+        "fullname": "Kansas",
+        "recentInfo": "KS",
+        "displayPic": "https://unsplash.it/512/512?image=20"
+    },
+    {
+        "fullname": "Kentucky",
+        "recentInfo": "KY",
+        "displayPic": "https://unsplash.it/512/512?image=21"
+    },
+    {
+        "fullname": "Louisiana",
+        "recentInfo": "LA",
+        "displayPic": "https://unsplash.it/512/512?image=22"
+    },
+    {
+        "fullname": "Maine",
+        "recentInfo": "ME",
+        "displayPic": "https://unsplash.it/512/512?image=23"
+    },
+    {
+        "fullname": "Marshall Islands",
+        "recentInfo": "MH",
+        "displayPic": "https://unsplash.it/512/512?image=24"
+    },
+    {
+        "fullname": "Maryland",
+        "recentInfo": "MD",
+        "displayPic": "https://unsplash.it/512/512?image=25"
+    },
+    {
+        "fullname": "Massachusetts",
+        "recentInfo": "MA",
+        "displayPic": "https://unsplash.it/512/512?image=26"
+    },
+    {
+        "fullname": "Michigan",
+        "recentInfo": "MI",
+        "displayPic": "https://unsplash.it/512/512?image=27"
+    },
+    {
+        "fullname": "Minnesota",
+        "recentInfo": "MN",
+        "displayPic": "https://unsplash.it/512/512?image=28"
+    },
+    {
+        "fullname": "Mississippi",
+        "recentInfo": "MS",
+        "displayPic": "https://unsplash.it/512/512?image=29"
+    },
+    {
+        "fullname": "Missouri",
+        "recentInfo": "MO",
+        "displayPic": "https://unsplash.it/512/512?image=30"
+    },
+    {
+        "fullname": "Montana",
+        "recentInfo": "MT",
+        "displayPic": "https://unsplash.it/512/512?image=31"
+    },
+    {
+        "fullname": "Nebraska",
+        "recentInfo": "NE",
+        "displayPic": "https://unsplash.it/512/512?image=32"
+    },
+    {
+        "fullname": "Nevada",
+        "recentInfo": "NV",
+        "displayPic": "https://unsplash.it/512/512?image=33"
+    },
+    {
+        "fullname": "New Hampshire",
+        "recentInfo": "NH",
+        "displayPic": "https://unsplash.it/512/512?image=34"
+    },
+    {
+        "fullname": "New Jersey",
+        "recentInfo": "NJ",
+        "displayPic": "https://unsplash.it/512/512?image=35"
+    },
+    {
+        "fullname": "New Mexico",
+        "recentInfo": "NM",
+        "displayPic": "https://unsplash.it/512/512?image=36"
+    },
+    {
+        "fullname": "New York",
+        "recentInfo": "NY",
+        "displayPic": "https://unsplash.it/512/512?image=37"
+    },
+    {
+        "fullname": "North Carolina",
+        "recentInfo": "NC",
+        "displayPic": "https://unsplash.it/512/512?image=38"
+    },
+    {
+        "fullname": "North Dakota",
+        "recentInfo": "ND",
+        "displayPic": "https://unsplash.it/512/512?image=39"
+    },
+    {
+        "fullname": "Northern Mariana Islands",
+        "recentInfo": "MP",
+        "displayPic": "https://unsplash.it/512/512?image=40"
+    },
+    {
+        "fullname": "Ohio",
+        "recentInfo": "OH",
+        "displayPic": "https://unsplash.it/512/512?image=41"
+    },
+    {
+        "fullname": "Oklahoma",
+        "recentInfo": "OK",
+        "displayPic": "https://unsplash.it/512/512?image=42"
+    },
+    {
+        "fullname": "Oregon",
+        "recentInfo": "OR",
+        "displayPic": "https://unsplash.it/512/512?image=43"
+    },
+    {
+        "fullname": "Palau",
+        "recentInfo": "PW",
+        "displayPic": "https://unsplash.it/512/512?image=44"
+    },
+    {
+        "fullname": "Pennsylvania",
+        "recentInfo": "PA",
+        "displayPic": "https://unsplash.it/512/512?image=45"
+    },
+    {
+        "fullname": "Puerto Rico",
+        "recentInfo": "PR",
+        "displayPic": "https://unsplash.it/512/512?image=46"
+    },
+    {
+        "fullname": "Rhode Island",
+        "recentInfo": "RI",
+        "displayPic": "https://unsplash.it/512/512?image=47"
+    },
+    {
+        "fullname": "South Carolina",
+        "recentInfo": "SC",
+        "displayPic": "https://unsplash.it/512/512?image=48"
+    },
+    {
+        "fullname": "South Dakota",
+        "recentInfo": "SD",
+        "displayPic": "https://unsplash.it/512/512?image=49"
+    },
+    {
+        "fullname": "Tennessee",
+        "recentInfo": "TN",
+        "displayPic": "https://unsplash.it/512/512?image=50"
+    },
+    {
+        "fullname": "Texas",
+        "recentInfo": "TX",
+        "displayPic": "https://unsplash.it/512/512?image=51"
+    },
+    {
+        "fullname": "Utah",
+        "recentInfo": "UT",
+        "displayPic": "https://unsplash.it/512/512?image=52"
+    },
+    {
+        "fullname": "Vermont",
+        "recentInfo": "VT",
+        "displayPic": "https://unsplash.it/512/512?image=53"
+    },
+    {
+        "fullname": "Virgin Islands",
+        "recentInfo": "VI",
+        "displayPic": "https://unsplash.it/512/512?image=54"
+    },
+    {
+        "fullname": "Virginia",
+        "recentInfo": "VA",
+        "displayPic": "https://unsplash.it/512/512?image=55"
+    },
+    {
+        "fullname": "Washington",
+        "recentInfo": "WA",
+        "displayPic": "https://unsplash.it/512/512?image=56"
+    },
+    {
+        "fullname": "West Virginia",
+        "recentInfo": "WV",
+        "displayPic": "https://unsplash.it/512/512?image=57"
+    },
+    {
+        "fullname": "Wisconsin",
+        "recentInfo": "WI",
+        "displayPic": "https://unsplash.it/512/512?image=58"
+    },
+    {
+        "fullname": "Wyoming",
+        "recentInfo": "WY",
+        "displayPic": "https://unsplash.it/512/512?image=59"
+    },
+    {"displayPic": "https://media.licdn.com/mpr/mprx/0_1xnHw83mZIFqIXEkknwSsDjIebBYYokw8_EEOYymee6gf6bSQnwSZnTedHBUYEIwQVwEYHhDs-F4yREC8qFbyU8mD-FZyRnmiqFod8yaZHnlyuFFiKcI7UwB2n",
+     "fullname": "Bhavin Makasana",
+     "recentInfo": "QA Automation Engineer"
+    },
+]]

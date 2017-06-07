@@ -1,0 +1,42 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="userOrganizationsController">
+
+<div class="panel panel-custom-infoBlock" id="organizationSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Organization.title}}</text> -->
+      <text class="profileInfoCategory-title">Organizations</text>
+    </div>
+    
+    <div class="panel-body" ng-repeat="org in profileInfo_Organization.organizations" >
+    <!-- <form editable-form name="editableFormOrganization" ng-repeat="org in profileInfo_Organization.organizations" ng-show=profileInfo_Organization.visibility> -->
+      <div class="col-md-12">
+        <div class="col-md-10">
+          <div class="row">
+            <text class="profileInfo-heading1">{{org.organizationName}}</text>
+          </div>
+          <div class="row">
+            <text class="profileInfo-heading2">{{org.positionHeld}}</text>
+          </div>
+          <div class="row profileInfo-heading3">
+            
+            <text ng-show=org.startTime>{{org.startTime | date:"mediumDate"}}</text>
+            <text ng-show=org.endTime> - {{org.endTime | date:"mediumDate"}}</text>
+            <text ng-show=org.occupation> | {{org.occupation}}</text>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <img class="profileInfo-logo pull-right" src="{{org.logo_url}}">
+        </div>
+      </div>
+
+      <div class="col-md-12">
+      <text class="profileInfo-description"> {{org.additionalNotes}}</text>
+      </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+    <!-- </form> -->
+    </div>
+  
+  </div>
+
+</div>

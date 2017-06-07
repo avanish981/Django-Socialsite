@@ -1,0 +1,94 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="languagesController">
+
+	<div class="panel panel-custom-infoBlock" ng-show=profileInfo_Languages.visibility id="languageSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Languages.title}}</text> -->
+      <text class="profileInfoCategory-title">Languages</text>
+    </div>
+    
+    <div class="panel-body">
+    <form editable-form name="editableFormLanguages">
+      <div class="col-md-11">
+        <div class="col-md-12" ng-repeat="language in profileInfo_Languages.languages"> 
+          <div class="col-md-11">
+          <text class="profileInfo-description" editable-text ="profileInfo_Languages.languages[$index]" e-placeholder="Language"> {{language}} </text>
+          </div>
+          <div class="col-md-1" ng-show="editableFormLanguages.$visible" ng-really-message="Are you sure you want to delete all the Languages?" ng-really-click-languages="removeLanguage($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-1" ng-if="profileInfo_Languages.languages.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormLanguages.$show()" ng-show="!editableFormLanguages.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span class="container" ng-show="editableFormLanguages.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateLanguage($index)" ng-disabled="editableFormLanguages.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormLanguages.$waiting" ng-click="editableFormLanguages.$cancel()">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" ng-click="deleteLanguages($index); editableFormLanguages.$cancel()" ng-disabled="editableFormLanguages.$waiting">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button>
+        </span>
+      </div>     
+
+      <div class="col-md-12" ng-if="profileInfo_Languages.languages.length >= 1"><hr class="style-one"></div>
+    </form>
+
+    <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormLanguagesNew.$show()" ng-show="!editableFormLanguagesNew.$visible">
+          Add Languages <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+    </div>
+
+    <form editable-form name="editableFormLanguagesNew" ng-show=editableFormLanguagesNew.$visible>
+    	<div class="col-md-12" ng-repeat="language in languagesNew">
+	    	<div class="col-md-11">
+          <div class="editor">
+  	    		<span class="col-md-2"><text class="labels">Language Name: </text></span>
+  				  <span class=""><text editable-text="languagesNew[$index].name" e-placeholder="Language Name"></text></span>
+  	    	</div>
+        </div>
+        <div class="col-md-1" ng-show="editableFormLanguagesNew.$visible" ng-click="removeNewLanguage($index)">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+	    	<div class="col-md-12"><hr></div>
+	    </div>
+
+	    <div class="col-md-12">
+	    	<button type="button" class="btn theme-btn pull-left" ng-click="addNewLanguageRow()">
+          		<span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add a language </span>
+        	</button>
+        </div>
+
+	    <div class="col-md-12">
+        	<hr>
+	      <!-- buttons to submit / cancel form -->
+	      <span ng-show="editableFormLanguagesNew.$visible">
+	        <button type="submit" class="btn btn-success" ng-click="saveNewLanguages()" ng-disabled="editableFormLanguagesNew.$waiting">
+	          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+	        </button>
+	        <button type="button" class="btn btn-danger" ng-disabled="editableFormLanguagesNew.$waiting" ng-click="editableFormLanguagesNew.$cancel(); discardLanguages();">
+	          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+	        </button>
+	      </span>
+	    </div>
+
+	    <div class="col-md-12"><hr class="style-one"></div>
+    </form>
+
+    </div>
+
+    </div>
+
+</div>

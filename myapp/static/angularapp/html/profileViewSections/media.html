@@ -1,0 +1,120 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="userMediaController">
+
+<div class="panel panel-custom-infoBlock" id="documentSection" ng-show="sectionVisibility.Documents">
+  <div class="panel-heading">
+    <text class="profileInfoCategory-title">Documents:</text>
+  </div>
+  <div class="panel-body">
+    
+    <div class="col-md-12" ng-repeat="docs in documentData" ng-if="$index % 4 == 0" style="padding-bottom: 10px">
+      <div class="col-md-3 letter-box" ng-show="documentData[$index].src">
+        <img width="100%" class="best_thumbnail" ng-click = "showPDF(documentData[$index].src)" ng-src="{{documentData[$index].src}}">
+      </div>
+      <div class="col-md-3 letter-box" ng-show="documentData[$index + 1].src">
+        <img width="100%" class="best_thumbnail" ng-click = "showPDF(documentData[$index + 1].src)" ng-src="{{documentData[$index + 1].src}}">
+      </div>
+      <div class="col-md-3 letter-box" ng-show="documentData[$index + 2].src">
+        <img width="100%" class="best_thumbnail" ng-click = "showPDF(documentData[$index + 2].src)" ng-src="{{documentData[$index + 2].src}}">
+      </div>
+      <div class="col-md-3 letter-box" ng-show="documentData[$index + 3].src">
+        <img width="100%" class="best_thumbnail" ng-click = "showPDF(documentData[$index + 3].src)" ng-src="{{documentData[$index + 3].src}}">
+      </div>
+    </div>
+
+    <div class="col-md-12"><hr class="style-one"></div> 
+  </div>
+</div>
+
+
+<div class="panel panel-custom-infoBlock" id="imageSection" ng-show="sectionVisibility.Images">
+  <div class="panel-heading">
+    <text class="profileInfoCategory-title">Images:</text>
+  </div>
+  <div class="panel-body"> 
+
+    <div class="col-md-12" ng-repeat="imgs in imageData" ng-if="$index % 4 == 0">
+      <div class="col-md-3 letter-box" ng-show="imageData[$index].src" style="text-align: center">
+        <img class="profileImageLib best_thumbnail" width="100%" ng-src="{{imageData[$index].src}}" data-toggle="modal" data-target="#imageModal" ng-click="getCurrentImage($index)">
+      </div>
+      <div class="col-md-3 letter-box" ng-show="imageData[$index + 1].src" style="text-align: center">
+        <img class="profileImageLib best_thumbnail" width="100%" ng-src="{{imageData[$index + 1].src}}" data-toggle="modal" data-target="#imageModal" ng-click="getCurrentImage($index+1)">
+      </div>
+      <div class="col-md-3 letter-box" ng-show="imageData[$index + 2].src" style="text-align: center">
+        <img class="profileImageLib best_thumbnail" width="100%" ng-src="{{imageData[$index + 2].src}}" data-toggle="modal" data-target="#imageModal" ng-click="getCurrentImage($index+2)">
+      </div>
+      <div class="col-md-3 letter-box" ng-show="imageData[$index + 3].src" style="text-align: center">
+        <img class="profileImageLib best_thumbnail" width="100%" ng-src="{{imageData[$index + 3].src}}" data-toggle="modal" data-target="#imageModal" ng-click="getCurrentImage($index+3)">
+      </div>
+    </div>
+
+    <div class="col-md-12"><hr class="style-one"></div> 
+  </div>
+</div>
+
+  
+<div class="panel panel-custom-infoBlock" id="videoSection" ng-show="sectionVisibility.Videos">
+  <div class="panel-heading">
+    <text class="profileInfoCategory-title">Videos:</text>
+  </div>
+  <div class="panel-body">
+
+    <div class="col-md-12" ng-repeat="vids in videoData" ng-if="$index % 4 == 0">
+      <div class="col-md-3 letter-box" ng-show="videoData[$index].src">
+        <embed-video width="100%" iframe-id="vimeo1" api="1" player_id="vimeo1" ng-href={{videoData[$index].src}}>
+        <a href="{{videoData[$index].src}}">Watch</a></embed-video>
+      </div>
+      <div class="col-md-3 letter-box" ng-show="videoData[$index + 1].src">
+        <embed-video width="100%" iframe-id="vimeo1" api="1" player_id="vimeo1" ng-href="{{videoData[$index + 1].src}}">
+        <a href="{{videoData[$index + 1].src}}">Watch</a></embed-video>
+      </div>
+      <div class="col-md-3 letter-box" ng-show="videoData[$index + 2].src">
+        <embed-video width="100%" iframe-id="vimeo1" api="1" player_id="vimeo1" ng-href="{{videoData[$index + 2].src}}">
+        <a href="{{videoData[$index + 2].src}}">Watch</a></embed-video>
+      </div>
+      <div class="col-md-3 letter-box" ng-show="videoData[$index + 3].src">
+        <embed-video width="100%" iframe-id="vimeo1" api="1" player_id="vimeo1" ng-href="{{videoData[$index + 3].src}}">
+        <a href="{{videoData[$index + 3].src}}">Watch</a></embed-video>
+      </div>
+    </div> 
+
+    <div class="col-md-12"><hr class="style-one"></div>  
+  </div>
+</div>
+
+
+
+<!-- Image Modal Content -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog modal-vertical-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Images: </h4>
+      </div>
+      <div class="container-fluid modal-body">
+      <!-- <div class="col-md-1" style="position: relative;"> -->
+        <div class="col-md-1  col-xs-1 modalImg" ng-click="getPrevImage()" style="padding-top: 19%">
+          <!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true" ng-click="getPrevImage()"></span> -->
+          <img class="modalImg" ng-src="static/angularapp/images/chevron-left.png"> 
+        </div>
+      <!-- </div> -->
+        <div class="col-md-10  col-xs-10 modalImg"> 
+          <img class="modalImg" ng-src={{currImageSrc}}> 
+        </div>
+      <!-- <div class="col-md-1" style="position: relative;"> -->
+        <div class="col-md-1 col-xs-1 modalImg" ng-click="getNextImage()" style="padding-top: 19%">
+          <!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true" ng-click="getNextImage()"></span> -->
+          <img class="modalImg" ng-src="static/angularapp/images/chevron-right.png"> 
+        </div>
+      <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- The End -->
+
+
+
+
+

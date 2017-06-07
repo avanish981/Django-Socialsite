@@ -1,0 +1,160 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="projectsController">
+
+<div class="panel panel-custom-infoBlock" id="projectSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Projects.title}}</text> -->
+      <text class="profileInfoCategory-title">Projects</text>
+    </div>
+    
+    <div class="panel-body">
+    <form editable-form name="editableFormProjects" ng-repeat="project in profileInfo_Projects.projects" ng-show=profileInfo_Projects.visibility>
+      <div class="col-md-11">
+        <div class="col-md-10">
+          <div class="row">
+              <a class="profileInfo-heading1" ng-href="{{project.project_url}}" target="_blank" style="color:#5C5F62" editable-text="project.projectName" e-placeholder="Project Name">
+              {{project.projectName}}
+              </a>
+              <a editable-text="project.project_url" e-placeholder="Project URL"></a>
+          </div>
+          <div class="row profileInfo-heading3">
+            <text ng-show="editableFormProjects.$visible">Start Date: </text>
+            <text ng-show=project.startTime editable-combodate="project.startTime">{{project.startTime | date:"mediumDate"}}</text>
+            <text ng-show="editableFormProjects.$visible">End Date: </text>
+            <text ng-show=project.endTime editable-combodate="project.endTime"> - {{project.endTime | date:"mediumDate"}}</text>
+            <text ng-show=project.occupation editable-text="project.occupation" e-placeholder="Occupation"> | {{project.occupation}}</text>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-1" ng-if="profileInfo_Projects.projects.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormProjects.$show(); setEditProjectIndex($index, 1)" ng-show="!editableFormProjects.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>
+
+
+      <div class="col-md-11">
+        <text class="profileInfo-description" editable-textarea="project.description" e-placeholder="Description"> {{project.description}}</text>
+      </div>
+
+      <div class="col-md-11">
+        <text class="profileInfo-description" ng-if="project.teamMembers.length >= 1"> <b> Team Members ({{project.teamMembers.length}}): </b></text>
+        <ul class="openCircleBullets" ng-repeat="member in project.teamMembers" ng-if="project.teamMembers.length >= 1">
+          <li class="col-md-11">
+              <text class="profileInfo-description" editable-text="project.teamMembers[$index].name" e-placeholder="Member Name">{{member.name}}</text>
+          </li>
+          <div class="col-md-1" ng-show="editableFormProjects.$visible" ng-really-message="Are you sure you want to delete all member?" ng-really-click-projects="removeMember($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+        </ul>
+      </div>
+
+      <div class="col-md-12" ng-show="editableFormProjects.$visible">
+        <button type="button" class="btn theme-btn pull-left" ng-click="addNewMemberRowEditMode($index)">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add a member </span>
+        </button>
+      </div>
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormProjects.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateProjects($index)" ng-disabled="editableFormProjects.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormProjects.$waiting" ng-click="editableFormProjects.$cancel(); setEditProjectIndex($index, 0)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" ng-click="deleteProjects($index); editableFormProjects.$cancel()" ng-disabled="editableFormProjects.$waiting">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button>
+        </span>
+      </div>     
+      <div class="col-md-12"><hr class="style-one"></div>
+
+    </form>
+
+    <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormProjectsNew.$show()" ng-show="!editableFormProjectsNew.$visible">
+          Add Project <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+     </div>
+
+    <form editable-form name="editableFormProjectsNew" ng-show=editableFormProjectsNew.$visible>
+    	<div class="col-md-12">
+    		<div class="editor">
+				<span class="col-md-2"><text class="labels">Project Name: </text></span>
+				<span class=""><text editable-text="projectNew.projectName" e-placeholder="Project Name"></text></span>
+			</div>
+
+			<div class="editor">
+				<span class="col-md-2"><text class="labels">Project URL: </text></span>
+				<span class=""><text editable-text="projectNew.project_url" e-placeholder="Project URL"></text></span>
+			</div>
+
+			<div class="editor">
+        		<span class="col-md-2"><text class="labels" >Start Date: </text></span>
+        		<text editable-combodate="projectNew.startTime"></text>
+        	</div>
+
+            
+			<div class="editor">
+				<span class="col-md-2"><text class="labels" >End Date: </text></span>
+				<text editable-combodate="projectNew.endTime"></text>
+			</div>
+
+			<div class="editor">
+				<span class="col-md-2"><text class="labels">Occupation: </text></span>
+				<span class=""><text editable-text="projectNew.occupation" e-placeholder="Occupation"></text></span>
+			</div>
+
+			<div class="editor">
+				<span class="col-md-2"><text class="labels">Description: </text></span>
+				<span class=""><text editable-textarea="projectNew.description" e-placeholder="Description"></text></span>
+			</div>
+
+			<div class="editor">
+				<span class="col-md-2"><text class="labels">Team Members: </text></span>
+				<span class="">
+			    	<button type="button" class="btn theme-btn pull-left" ng-click="addNewMemberRow()">
+		          		<span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add a member </span>
+		        	</button>
+		        </span>
+			</div>
+
+			<div class="editor">
+				<div class="col-md-12" ng-repeat="member in projectNew.teamMembers">
+					<div class="col-md-11">
+            <text editable-text="projectNew.teamMembers[$index].name" e-placeholder="Member Name"></text>
+          </div>
+          <div class="col-md-1" ng-click="removeNewMember($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+				</div>
+			</div>
+
+    	</div>
+
+    	<div class="col-md-12">
+    		<hr>
+	      <!-- buttons to submit / cancel form -->
+	      <span ng-show="editableFormProjectsNew.$visible">
+	        <button type="submit" class="btn btn-success" ng-click="addNewProject()" ng-disabled="editableFormProjectsNew.$waiting">
+	          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+	        </button>
+	        <button type="button" class="btn btn-danger" ng-disabled="editableFormProjectsNew.$waiting" ng-click="editableFormProjectsNew.$cancel(); discardProject();">
+	          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+	        </button>
+	      </span>
+	    </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+    </form>
+
+    </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,125 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="experienceController">
+
+<div class="panel panel-custom-infoBlock" id="experienceSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Experience.title}}</text> -->
+      <text class="profileInfoCategory-title">Experience</text>
+    </div>
+    
+    <div class="panel-body" >
+    <form editable-form name="editableFormExperience" ng-repeat="exp in profileInfo_Experience.experience" ng-show=profileInfo_Experience.visibility>
+      <div class="col-md-11">
+        <div class="col-md-10">
+          <div class="row"><text class="profileInfo-heading1" editable-text="exp.title" e-placeholder="Job Title">{{exp.title}}</text></div>
+          <div class="row"><text class="profileInfo-heading2" editable-text="exp.companyName" e-placeholder="Company Name">{{exp.companyName}}</text></div>
+          <div class="row profileInfo-heading3">
+            
+          <!-- <text type="text" id="date" editable-combodate="exp.dob">{{(exp.dob | date:"mediumDate")}}</text> -->
+            <!-- <text ng-show="exp.dob" editable-combodate="exp.dob" e-dataview-format="DD-MM-YYYY" e-data-template="D MMM YYYY">{{ (exp.dob | date:"medium") || 'empty' }}</text> -->
+            <text ng-show="editableFormExperience.$visible">Start Date: </text>
+            <text ng-show="exp.startTime" editable-combodate="exp.startTime">{{exp.startTime | date:"mediumDate"}}</text>
+            
+            <text ng-show="editableFormExperience.$visible">End Date  : </text>
+            <text ng-show="exp.endTime" editable-combodate="exp.endTime"> - {{exp.endTime  | date:"mediumDate"}}</text>
+            
+            <text ng-show="exp.location" editable-text="exp.location" e-placeholder="Location"> | {{exp.location}}</text>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <img class="profileInfo-logo pull-right" src="{{exp.logo_url}}">
+        </div>
+      </div>
+      
+      <div class="col-md-1" ng-if="profileInfo_Experience.experience.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormExperience.$show()" ng-show="!editableFormExperience.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+      </div>
+
+      <div class="col-md-11">
+      	<text class="profileInfo-description" editable-textarea="exp.description" e-placeholder="Description"> {{exp.description}}</text>
+      </div>
+
+	    <div class="col-md-12">
+	      <!-- buttons to submit / cancel form -->
+	      <span ng-show="editableFormExperience.$visible">
+	        <button type="submit" class="btn btn-success" ng-click="updateExperience($index)" ng-disabled="editableFormExperience.$waiting">
+	          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+	        </button>
+	        <button type="button" class="btn btn-warning" ng-disabled="editableFormExperience.$waiting" ng-click="editableFormExperience.$cancel()">
+	          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+	        </button>
+          <button type="submit" class="btn btn-danger" ng-click="deleteExperience($index); editableFormExperience.$cancel()" ng-disabled="editableFormExperience.$waiting">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button>
+	      </span>
+	    </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+    </form>
+
+
+    <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormExperienceNew.$show()" ng-show="!editableFormExperienceNew.$visible">
+          Add Experience <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+     </div>
+
+    <form editable-form name="editableFormExperienceNew" ng-show="editableFormExperienceNew.$visible">
+
+      <div class="col-md-12">
+  		<div class="editor">
+  			<span class="col-md-2"><text class="labels">Title: </text></span>
+  			<span class=""><text editable-text="experienceNew.title" e-placeholder="Job Title"></text></span>
+  		</div>
+  		<div class="editor">
+  			<span class="col-md-2"><text class="labels">Company Name: </text></span>
+  			<span class=""><text editable-text="experienceNew.companyName" e-placeholder="Company Name"></text></span>
+  			<img class="profileInfo-logo pull-right" src="{{experienceNew.logo_url}}">
+  		</div>          
+
+         	<div class="editor">
+          	<span class="col-md-2"><text class="labels" >Start Date: </text></span>
+          	<text editable-combodate="experienceNew.startTime"></text>
+          </div>
+
+            
+		<div class="editor">
+			<span class="col-md-2"><text class="labels" >End Date: </text></span>
+			<text editable-combodate="experienceNew.endTime"></text>
+		</div>
+
+		<div class="editor">
+			<span class="col-md-2"><text class="labels" >Location: </text></span>
+			<text editable-text="experienceNew.location" e-placeholder="Location"></text>
+		</div>
+
+		<div class="editor">
+			<span class="col-md-2"><text class="labels" style="vertical-align: top">Description: </text></span>
+			<text editable-textarea="experienceNew.description" e-placeholder="Description"></text>
+		</div>
+
+	    <div class="col-md-12">
+	      <!-- buttons to submit / cancel form -->
+	      <span ng-show="editableFormExperienceNew.$visible">
+	        <button type="submit" class="btn btn-success" ng-click="addNewExperience()" ng-disabled="editableFormExperienceNew.$waiting">
+	          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+	        </button>
+	        <button type="button" class="btn btn-danger" ng-disabled="editableFormExperienceNew.$waiting" ng-click="editableFormExperienceNew.$cancel(); discardExperience();">
+	          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+	        </button>
+	      </span>
+	    </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+      </div>
+    </form>
+
+    </div>
+  
+</div>
+
+</div>

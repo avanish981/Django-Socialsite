@@ -1,0 +1,91 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="userVolunteeringController">
+
+	<div class="panel panel-custom-infoBlock" id="volunteeringSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Volunteering.title}}</text> -->
+      <text class="profileInfoCategory-title">Volunteering</text>
+    </div>
+    
+    <div class="panel-body" ng-repeat="volunteer in profileInfo_Volunteering.volunteering">
+    <!-- <form editable-form name="editableFormVolunteering" ng-repeat="volunteer in profileInfo_Volunteering.volunteering" ng-show=profileInfo_Volunteering.visibility > -->
+      <div class="col-md-12">
+        <div class="col-md-10">
+          <div class="row"><text class="profileInfo-heading1">{{volunteer.role}}</text></div>
+          <div class="row"><text class="profileInfo-heading2">{{volunteer.organizationName}}</text></div>
+          <div class="row profileInfo-heading3">
+            
+            <text ng-show=volunteer.startTime>{{volunteer.startTime | date:"mediumDate"}}</text>
+            
+            <text ng-show=volunteer.endTime> - {{volunteer.endTime | date:"mediumDate"}}</text>
+            <text ng-show=volunteer.cause> | {{volunteer.cause}}</text>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <img class="profileInfo-logo pull-right" src="{{volunteer.logo_url}}">
+        </div>
+      </div>
+      
+      <div class="col-md-12">
+      <text class="profileInfo-description"> {{volunteer.description}}</text>
+      </div>
+
+<!--       </form> -->
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+      <!-- <form editable-form name="editableFormVolunteeringOpportunities"> -->
+      <div class="col-md-12"><!-- ng-if="profileInfo_Volunteering.opportunitiesLookingFor.length >= 1" -->
+        <div class=""> <text class="profileInfo-heading1"> Opportunities you are looking for: </text> </div>
+        <div class=""> <text class="profileInfo-heading3"> How would you like to donate your time and talent?</text> </div>
+        <div class="" ng-show=profileInfo_Volunteering.visibility>
+        <ul class="openCircleBullets" ng-repeat="opportunity in profileInfo_Volunteering.opportunitiesLookingFor">
+          <li class="col-md-11">
+            <text class="profileInfo-description">{{opportunity.name}}</text>
+          </li>
+        </ul>
+        </div>
+      </div>
+
+      <!-- </form> -->
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+      <!-- <form editable-form name="editableFormVolunteeringCauses"> -->
+      <div class="col-md-12" ><!-- ng-if="profileInfo_Volunteering.causes.length >= 1" -->
+        <div class=""> <text class="profileInfo-heading1"> Causes you care about: </text> </div>
+        <div class=""> <text class="profileInfo-heading3"> Topics and causes that matter to you:</text> </div>
+        <div class="" ng-show=profileInfo_Volunteering.visibility>
+        <ul class="openCircleBullets" ng-repeat="cause in profileInfo_Volunteering.causes">
+          <li class="col-md-11">
+            <text class="profileInfo-description">{{cause.name}}</text>
+          </li>
+        </ul>
+        </div>
+      </div>
+
+      <!-- </form> -->
+
+      <div class="col-md-12"><hr class="style-one"></div>
+
+      <!-- <form editable-form name="editableFormVolunteeringOrganizations"> -->
+      <div class="col-md-12" ><!-- ng-if="profileInfo_Volunteering.organizationSupported.length >= 1" -->
+        <div class=""> <text class="profileInfo-heading1"> Organizations you suppport: </text> </div>
+        <div class=""> <text class="profileInfo-heading3"> What are your favorite organizations? </text> </div>
+        <div class="">
+        <ul class="openCircleBullets" ng-repeat="organization in profileInfo_Volunteering.organizationSupported">
+          <li class="col-md-11">
+            <text class="profileInfo-description">{{organization.name}}</text>
+          </li>
+        </ul>
+        </div>
+      </div>   
+
+      <!-- </form> -->
+      <div class="col-md-12"><hr class="style-one"></div>
+    <!-- </form> -->
+    </div>
+    
+  </div>
+
+
+</div>

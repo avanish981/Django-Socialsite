@@ -1,0 +1,36 @@
+<link rel="stylesheet" type="text/css" href="/static/angularapp/css/profileBuilderNewUser.css">
+
+<div class="row" style="padding-top:60px">
+
+<div class="col-md-2">
+	<div class="nav-side-menu">
+	    <!-- <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i> -->
+        <div class="menu-list">
+        	<div class="thumbnail">
+				<!-- <img src="/static/angularapp/images/photo.jpg"> -->
+				<img src="{{myservice.user.image}}"\>
+			</div>
+			<!-- <ul id="menu-content" class="menu-content collapse out"> -->
+			<div>
+				<h3 style="padding-top: 10px; margin-top:0px"> <font style="color:#5C5F62">{{myservice.user.firstname}} {{myservice.user.lastname}} </font></h3>
+				<div data-toggle="collapse" data-target="#sections" aria-expanded="true" aria-controls="collapse" style="cursor: pointer">
+					<h5 style="padding-top: 10px; margin-top:0px"> 
+						<span class="glyphicon glyphicon-menu-down" aria-hidden="true" style="color:#5C5F62">
+						<font style="color:#5C5F62">Quick Links</font>
+						<span class="glyphicon glyphicon-menu-down" aria-hidden="true" style="color:#5C5F62">
+					</h5>
+				</div>
+			</div>
+			<!-- </ul> -->
+			<div id="sections" class="collapse in">
+            <ul id="menu-content" class="menu-content collapse out" ng-repeat="stateName in stateIdxLabel">
+                <li ng-click="switchStateTo(stateName)" ng-class="{'active': stateName == state.active}"><a> {{stateName}} </a></li>
+            </ul>
+            </div>
+	     </div>
+	</div>
+</div>
+
+<div class="col-md-10" ng-include src="state.src" style="margin-left: -15px"></div>
+
+</div>

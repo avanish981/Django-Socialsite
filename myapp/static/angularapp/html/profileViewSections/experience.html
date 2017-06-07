@@ -1,0 +1,39 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="userExperienceController">
+
+<div class="panel panel-custom-infoBlock" id="experienceSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Experience.title}}</text> -->
+      <text class="profileInfoCategory-title">Experience</text>
+    </div>
+    
+    <div class="panel-body" ng-repeat="exp in profileInfo_Experience.experience">
+    <!-- <form editable-form name="editableFormExperience" ng-repeat="exp in profileInfo_Experience.experience" ng-show=profileInfo_Experience.visibility> -->
+      <div class="col-md-12">
+        <div class="col-md-10">
+          <div class="row"><text class="profileInfo-heading1">{{exp.title}}</text></div>
+          <div class="row"><text class="profileInfo-heading2">{{exp.companyName}}</text></div>
+          <div class="row profileInfo-heading3">
+            
+            <text ng-show="exp.startTime">{{exp.startTime | date:"mediumDate"}}</text>
+            <text ng-show="exp.endTime"> - {{exp.endTime  | date:"mediumDate"}}</text>
+            
+            <text ng-show="exp.location"> | {{exp.location}}</text>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <img class="profileInfo-logo pull-right" src="{{exp.logo_url}}">
+        </div>
+      </div>
+
+      <div class="col-md-12">
+      	<text class="profileInfo-description"> {{exp.description}}</text>
+      </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+    <!-- </form> -->
+    
+    </div>
+  
+</div>
+
+</div>

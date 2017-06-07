@@ -1,0 +1,117 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="coursesController">
+
+<div class="panel panel-custom-infoBlock" id="courseSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Courses.title}}</text> -->
+      <text class="profileInfoCategory-title">Courses</text>
+    </div>
+    
+    <div class="panel-body">
+    <form editable-form name="editableFormCourses" ng-repeat="course in profileInfo_Courses.courses" ng-show=profileInfo_Courses.visibility>
+      <div class="col-md-11">
+          <text class="profileInfo-heading1">{{course.associatedWith}}</text>
+      </div>
+      <div class="col-md-1" ng-if="profileInfo_Courses.courses.length >= 1">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-right" ng-click="editableFormCourses.$show(); setEditCourseIndex($index, 1)" ng-show="!editableFormCourses.$visible">
+          Edit <span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:#FFFFFF">
+        </button>
+      </div>
+
+      <div class="col-md-11">
+        <!-- <text class="profileInfo-description"> {{name}}</text> -->
+        <ul class="openCircleBullets" ng-repeat="info in course.courseInfo">
+          <li class="col-md-11">
+              <text class="profileInfo-description" editable-text="info.name" e-placeholder="Course Name">{{info.name}}</text>
+              <text class="profileInfo-description" ng-show=info.number editable-text="info.number" e-placeholder="Course Name">({{info.number}})</text>
+          </li>
+          <div class="col-md-1" ng-show="editableFormCourses.$visible" ng-really-message="Are you sure you want to delete the course?" ng-really-click-courses="removeCourse($index)">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </div>
+        </ul>
+      </div>
+
+      <div class="col-md-12">
+        <!-- buttons to submit / cancel form -->
+        <span ng-show="editableFormCourses.$visible">
+          <button type="submit" class="btn btn-success" ng-click="updateCourses($index)" ng-disabled="editableFormCourses.$waiting">
+            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Save
+          </button>
+          <button type="button" class="btn btn-warning" ng-disabled="editableFormCourses.$waiting" ng-click="editableFormCourses.$cancel(); setEditCourseIndex($index, 0)">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel
+          </button>
+          <button type="submit" class="btn btn-danger" ng-click="deleteCourses($index); editableFormCourses.$cancel()" ng-disabled="editableFormCourses.$waiting">
+              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete
+          </button>
+        </span>
+      </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+    </form>
+
+
+    <div class="col-md-3">
+        <!-- button to show form -->
+        <button type="button" class="btn theme-btn pull-left" ng-click="editableFormCoursesNew.$show()" ng-show="!editableFormCoursesNew.$visible">
+          Add Courses <span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF"></span>
+        </button>
+     </div>
+
+    <form editable-form name="editableFormCoursesNew" ng-show=editableFormCoursesNew.$visible>
+	    <div class="col-md-12" ng-repeat="course in coursesNew">
+
+      <div class="col-md-11">
+	    	<div class="editor">
+	    		<span class="col-md-2"><text class="labels">Course Name: </text></span>
+				<span class=""><text editable-text="coursesNew[$index].name" e-placeholder="Course Name"></text></span>
+	    	</div>
+
+	    	<div class="editor">
+	    		<span class="col-md-2"><text class="labels">Course Number: </text></span>
+				<span class=""><text editable-text="coursesNew[$index].number" e-placeholder="Course Number"></text></span>
+	    	</div>
+
+	    	<div class="editor">
+	    		<span class="col-md-2"><text class="labels">Associated with: </text></span>
+				<span class=""><text editable-text="coursesNew[$index].associatedWith" e-placeholder="Associated With"></text></span>
+	    	</div>
+
+        </div>
+
+        <div class="col-md-1" ng-show="editableFormCoursesNew.$visible" ng-click="removeNewCourse($index)">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </div>
+
+
+        <div class="col-md-12"><hr></div>
+        </div>
+
+
+	    <div class="col-md-12">
+	    	<button type="button" class="btn theme-btn pull-left" ng-click="addNewCourseRow()">
+          		<span class="glyphicon glyphicon-plus" aria-hidden="true" style="color:#FFFFFF">Add a course </span>
+        	</button>
+        </div>
+
+        <div class="col-md-12">
+        	<hr>
+	      <!-- buttons to submit / cancel form -->
+	      <span ng-show="editableFormCoursesNew.$visible">
+	        <button type="submit" class="btn btn-success" ng-click="saveNewCourses()" ng-disabled="editableFormCoursesNew.$waiting">
+	          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add
+	        </button>
+	        <button type="button" class="btn btn-danger" ng-disabled="editableFormCoursesNew.$waiting" ng-click="editableFormCoursesNew.$cancel(); discardCourses();">
+	          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Discard
+	        </button>
+	      </span>
+	    </div>
+
+      	<div class="col-md-12"><hr class="style-one"></div>
+    </form>
+
+    </div>
+  
+  </div>
+
+
+</div>

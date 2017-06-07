@@ -1,0 +1,45 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="userProjectsController">
+
+<div class="panel panel-custom-infoBlock" id="projectSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Projects.title}}</text> -->
+      <text class="profileInfoCategory-title">Projects</text>
+    </div>
+    
+    <div class="panel-body" ng-repeat="project in profileInfo_Projects.projects">
+    <!-- <form editable-form name="editableFormProjects" ng-repeat="project in profileInfo_Projects.projects" ng-show=profileInfo_Projects.visibility> -->
+      <div class="col-md-12">
+        <div class="col-md-10">
+          <div class="row">
+              <a class="profileInfo-heading1" ng-href="{{project.project_url}}" target="_blank" style="color:#5C5F62">
+              {{project.projectName}}
+              </a>
+          </div>
+          <div class="row profileInfo-heading3">
+            
+            <text ng-show=project.startTime>{{project.startTime | date:"mediumDate"}}</text>
+            <text ng-show=project.endTime> - {{project.endTime | date:"mediumDate"}}</text>
+            <text ng-show=project.occupation> | {{project.occupation}}</text>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <text class="profileInfo-description"> {{project.description}}</text>
+      </div>
+
+      <div class="col-md-11">
+        <text class="profileInfo-description" ng-if="project.teamMembers.length >= 1"> <b> Team Members ({{project.teamMembers.length}}): </b></text>
+        <ul class="openCircleBullets" ng-repeat="member in project.teamMembers" ng-if="project.teamMembers.length >= 1">
+          <li class="col-md-11">
+              <text class="profileInfo-description">{{member.name}}</text>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+    <!-- </form> -->
+
+    </div>
+    </div>
+</div>

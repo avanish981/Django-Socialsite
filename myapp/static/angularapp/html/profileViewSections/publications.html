@@ -1,0 +1,47 @@
+<div class="col-md-12" style="margin-right: 15px" ng-controller="userPublicationsController">
+	
+	<div class="panel panel-custom-infoBlock" id="publicationSection">
+    <div class="panel-heading">
+      <!-- <text class="profileInfoCategory-title">{{profileInfo_Publications.title}}</text> -->
+      <text class="profileInfoCategory-title">Publications</text>
+    </div>
+    
+    <div class="panel-body" ng-repeat="publication in profileInfo_Publications.publications">
+    <!-- <form editable-form name="editableFormPublications" ng-repeat="publication in profileInfo_Publications.publications" ng-show=profileInfo_Publications.visibility> -->
+      <div class="col-md-12">
+        <div class="col-md-12">
+          <div class="row">
+              <a class="profileInfo-heading1" ng-href="{{publication.publication_url}}" target="_blank" style="color:#5C5F62">
+              {{publication.title}}
+              </a>
+          </div>
+          <div class="row">
+            <text class="profileInfo-heading2">{{publication.publication_publisher}}</text>
+          </div>
+          <div class="row profileInfo-heading3">
+            <!-- <text ng-show="editableFormPublications.$visible">Publication Date: </text> -->
+            <text ng-show=publication.date > {{publication.date | date:"mediumDate"}}</text>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-12">
+        <text class="profileInfo-description"> {{publication.description}}</text>
+      </div>
+
+
+      <div class="col-md-11">
+        <text class="profileInfo-description" ng-if="publication.authors.length >= 1"><b>Authors ({{publication.authors.length}}): </b></text>
+        <ul class="openCircleBullets" ng-repeat="author in publication.authors" ng-if="publication.authors.length >= 1">
+          <li class="col-md-11">
+              <text class="profileInfo-description">{{author.name}}</text>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-12"><hr class="style-one"></div>
+      <!-- </form> -->
+
+    </div>
+    </div>
+</div>
